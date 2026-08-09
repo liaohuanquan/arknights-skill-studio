@@ -1,0 +1,39 @@
+# Component Studio Reference
+
+Use this reference for component catalogs, design-system pages, internal UI documentation, and reusable interface studios.
+
+## Files
+
+- Screenshot: `images/component-studio.png`
+- Runnable template: `../assets/templates/component-studio/`
+- Main source: `../assets/templates/component-studio/src/main.js`
+- Styles: `../assets/templates/component-studio/src/style.css`
+
+## Composition to Reuse
+
+- Use a wide translucent charcoal rail for product identity and primary sections.
+- Present navigation as large bordered cards with one explicit selected state.
+- Fix a dark utility bar above an independently scrolling workspace.
+- Present components as consecutive horizontal documentation rows on desktop.
+- Keep the label column stable and give the instance area most of the width.
+- Stack the label above the instance on narrow screens.
+- Use hard edges, thin separators, cool-white surfaces, and visibly downward shadows.
+
+## Typography to Reuse
+
+- Use Noto Serif SC 700 or 900 for the page title, section titles, and component names.
+- Use Noto Sans SC 400 or 700 for controls, explanations, and supporting labels.
+- Use Times New Roman for Latin labels, indices, metrics, dates, and identifiers.
+- Keep sans-serif control labels visually lighter than major serif titles.
+
+## Do Not Copy
+
+- Do not copy the studio's section names when the target catalog needs a different taxonomy.
+- Do not place every available component on a product page.
+- Do not reproduce sample data, example labels, or decorative text without product meaning.
+- Do not turn documentation rows into large rounded cards.
+
+## Adaptation Test
+
+The result should remain recognizable as the target product after removing color. If the result still reads as the example studio rather than the target product, replace copied composition details with product-specific structure.
+

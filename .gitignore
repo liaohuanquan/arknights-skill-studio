@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+dist/
+.npm-cache/
+.skill-tools/
+.playwright-cli/
+.env
+.env.*
+!.env.example
+*.log

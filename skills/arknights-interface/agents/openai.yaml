@@ -1,0 +1,4 @@
+interface:
+  display_name: "Arknights Industrial Interface"
+  short_description: "Build industrial interfaces from verified visual references"
+  default_prompt: "Use $arknights-interface to inspect the closest bundled visual reference and refine the current page while preserving its business structure and behavior."
