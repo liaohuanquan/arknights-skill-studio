@@ -11,7 +11,8 @@ Use this reference for monitoring dashboards, device consoles, review queues, ad
 
 ## Composition to Reuse
 
-- Use a fixed translucent charcoal rail and a fixed dark global utility bar.
+- Use a fixed transparent charcoal rail with a thin outer divider, centered unboxed navigation, and a fixed dark global utility bar.
+- Place a quiet navigation filter near the top. Space white text links vertically, and mark the current item in blue with stronger weight. Keep desktop navigation free of brand blocks, item borders, icons, number badges, and selected fills.
 - Keep the workspace independently scrollable and hide only the visual scrollbar.
 - Put identity, connection state, time, and global actions in the utility bar.
 - Place key metrics and urgent warnings before detailed tables, forms, or logs.

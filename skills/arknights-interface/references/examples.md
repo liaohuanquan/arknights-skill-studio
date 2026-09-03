@@ -33,7 +33,7 @@ Use $arknights-interface to refine this mobile screen, focusing on bottom naviga
 ### Design-System Page
 
 - Display color, typography, spacing, geometry, and semantic-state tokens.
-- Use a wide sidebar, fixed top bar, and independently scrolling workspace on desktop. Present components as consecutive label-instance rows.
+- Use a compact sidebar, fixed top bar, and independently scrolling workspace on desktop. Present components as consecutive label-instance rows.
 - Combine a serif rules title, sparse yellow lines, completion metrics, and one primary action in the hero. Do not imitate the game logo or launch screen.
 - Show default, pressed, focus, disabled, and error states. Do not show Hover variations.
 - Use realistic product copy to validate Chinese typography instead of decorative Latin text alone.

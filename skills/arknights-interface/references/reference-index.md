@@ -4,10 +4,10 @@ Select one composition reference before implementing or substantially restyling 
 
 | Page type | Screenshot | Source template | Learn from |
 | --- | --- | --- | --- |
-| Component catalog or design studio | `images/component-studio.png` | `../assets/templates/component-studio/` | Wide navigation rail, fixed utility bar, consecutive component rows, type hierarchy, control-state presentation |
+| Component catalog or design studio | `images/component-studio.png` | `../assets/templates/component-studio/` | Centered text navigation rail, fixed utility bar, consecutive component rows, type hierarchy, control-state presentation |
 | Operations dashboard or device console | `images/operations-dashboard.png` | `../assets/templates/operations-dashboard/` | Fixed shell, metric strip, alert hierarchy, dense data panels, internal workspace scrolling |
 
-For numerals, blue accents, animation, and background depth, also use [Terminal Theme Reference](terminal-theme-reference.md). This supplements either page composition.
+For sidebar navigation, numerals, blue accents, animation, and background depth, also use [Terminal Theme Reference](terminal-theme-reference.md). This supplements either page composition.
 
 ## Selection Rules
 

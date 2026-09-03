@@ -1,5 +1,6 @@
 import './style.css'
 import { mountTerminalEffects } from './terminal-effects.js'
+import { mountSidebarSearch } from './terminal-navigation.js'
 
 const stationData = {
   'PS-01': { code: 'PS-01 / HUB', name: '白原中继站', status: '● 在线', statusClass: 'badge--success', coordinate: '77.85°S, 166.67°E', latency: '342 ms', sync: '18 秒前', firmware: '4.12.7' },
@@ -261,10 +262,18 @@ const navLinks = [...document.querySelectorAll('.nav-link, .mobile-nav a')]
 navLinks.forEach((link) => {
   link.addEventListener('click', () => {
     const target = link.getAttribute('href')
-    document.querySelectorAll(`[href="${target}"]`).forEach((item) => item.classList.add('is-active'))
-    navLinks.filter((item) => item.getAttribute('href') !== target).forEach((item) => item.classList.remove('is-active'))
+    navLinks.forEach((item) => {
+      const selected = item.getAttribute('href') === target
+      item.classList.toggle('is-active', selected)
+      if (selected) item.setAttribute('aria-current', 'location')
+      else item.removeAttribute('aria-current')
+    })
   })
 })
 
 const disposeTerminalEffects = mountTerminalEffects()
-if (import.meta.hot) import.meta.hot.dispose(disposeTerminalEffects)
+const disposeSidebarSearch = mountSidebarSearch(document.querySelector('.terminal-sidebar'))
+if (import.meta.hot) import.meta.hot.dispose(() => {
+  disposeTerminalEffects()
+  disposeSidebarSearch()
+})

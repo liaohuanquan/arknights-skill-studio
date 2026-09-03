@@ -28,24 +28,16 @@
         </div>
       </header>
 
-      <aside class="sidebar" aria-label="主导航">
-        <div class="brand-block" aria-hidden="true">
-          <span class="brand-block__index">77°51′S</span>
-          <strong>白原观测网</strong>
-          <span>无人值守 · 第七区段</span>
-        </div>
-        <nav class="nav-list">
-          <a class="nav-link is-active" href="#overview" aria-current="page"><span>01</span>运行概览</a>
-          <a class="nav-link" href="#stations"><span>02</span>站点状态</a>
-          <a class="nav-link" href="#devices"><span>03</span>设备数据</a>
-          <a class="nav-link" href="#calibration"><span>04</span>传感器校准</a>
-          <a class="nav-link" href="#maintenance"><span>05</span>维护记录</a>
+      <aside class="sidebar terminal-sidebar" data-nav-collapse="820" aria-label="主导航">
+        <label class="terminal-sidebar__search"><input type="search" placeholder="数据检索" aria-label="检索导航栏目" aria-controls="primary-navigation" autocomplete="off"></label>
+        <nav id="primary-navigation" class="nav-list terminal-sidebar__nav">
+          <a class="nav-link terminal-sidebar__link is-active" href="#overview" aria-current="location"><span class="terminal-sidebar__number">01</span>运行概览</a>
+          <a class="nav-link terminal-sidebar__link" href="#stations"><span class="terminal-sidebar__number">02</span>站点状态</a>
+          <a class="nav-link terminal-sidebar__link" href="#devices"><span class="terminal-sidebar__number">03</span>设备数据</a>
+          <a class="nav-link terminal-sidebar__link" href="#calibration"><span class="terminal-sidebar__number">04</span>传感器校准</a>
+          <a class="nav-link terminal-sidebar__link" href="#maintenance"><span class="terminal-sidebar__number">05</span>维护记录</a>
         </nav>
-        <div class="sidebar__meta">
-          <span>链路协议</span>
-          <strong>IRIDIUM / L-BAND</strong>
-          <span>数据周期 60 s</span>
-        </div>
+        <p class="terminal-sidebar__empty" role="status" hidden>未找到匹配的栏目</p>
       </aside>
 
       <main class="workspace" id="main-content">
@@ -317,7 +309,7 @@
       </main>
 
       <nav class="mobile-nav" aria-label="移动端导航">
-        <a class="is-active" href="#overview"><span>01</span>概览</a>
+        <a class="is-active" href="#overview" aria-current="location"><span>01</span>概览</a>
         <a href="#stations"><span>02</span>站点</a>
         <a href="#devices"><span>03</span>设备</a>
         <a href="#calibration"><span>04</span>校准</a>

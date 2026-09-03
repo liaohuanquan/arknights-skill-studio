@@ -5,7 +5,7 @@ Select elements from this catalog when building design-system pages, device cons
 ## Application Shell
 
 - Use a fixed top bar for the page title, global status, preview controls, and global actions.
-- Use a wide desktop sidebar for brand identity and primary navigation. A brand-led sidebar may use Noto Serif SC 700.
+- Use a transparent charcoal desktop sidebar with a quiet navigation filter, centered unboxed text links, generous vertical spacing, and a blue current item. Keep product identity in the top bar; omit sidebar brand blocks, boxed menu items, and desktop navigation icons.
 - Keep the workspace independently scrollable. When hiding scrollbars, support Firefox and WebKit while preserving wheel and touch scrolling.
 - Convert the sidebar to a fixed bottom bar on mobile. Hide secondary brand metadata and reserve bottom space for the bar.
 - Layer cool white, charcoal, and low-contrast blurred backgrounds. Do not use a full-page grid.

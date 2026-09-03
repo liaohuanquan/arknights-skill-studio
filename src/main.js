@@ -1,5 +1,6 @@
 import './style.css'
 import { mountTerminalEffects } from './terminal-effects.js'
+import { mountSidebarSearch } from './terminal-navigation.js'
 
 const icon = (name) => {
   const icons = {
@@ -19,15 +20,15 @@ const app = document.querySelector('#app')
 
 app.innerHTML = `
   <div class="shell">
-    <aside class="rail">
-      <a class="brand" href="#" aria-label="Skill 设计台"><span>S</span><i>LAB</i></a>
-      <nav aria-label="主导航">
-        <button class="nav-item active" data-page="overview">${icon('grid')}<span>概览</span></button>
-        <button class="nav-item" data-page="rules">${icon('sliders')}<span>视觉规则</span></button>
-        <button class="nav-item" data-page="components">${icon('layers')}<span>组件</span></button>
-        <button class="nav-item" data-page="source">${icon('code')}<span>Skill 文件</span></button>
+    <aside class="rail terminal-sidebar" data-nav-collapse="720">
+      <label class="terminal-sidebar__search"><input type="search" placeholder="数据检索" aria-label="检索导航栏目" aria-controls="primary-navigation" autocomplete="off"></label>
+      <nav id="primary-navigation" class="terminal-sidebar__nav" aria-label="主导航">
+        <button class="nav-item terminal-sidebar__link active" data-page="overview" aria-current="location">${icon('grid')}<span>概览</span></button>
+        <button class="nav-item terminal-sidebar__link" data-page="rules">${icon('sliders')}<span>视觉规则</span></button>
+        <button class="nav-item terminal-sidebar__link" data-page="components">${icon('layers')}<span>组件</span></button>
+        <button class="nav-item terminal-sidebar__link" data-page="source">${icon('code')}<span>Skill 文件</span></button>
       </nav>
-      <div class="rail-footer"><span>SYS</span><strong>ONLINE</strong><small>v0.1.0</small></div>
+      <p class="terminal-sidebar__empty" role="status" hidden>未找到匹配的栏目</p>
     </aside>
 
     <main>
@@ -299,7 +300,7 @@ app.innerHTML = `
 
         <section class="source-panel panel-cut" data-section="source">
           <div><span class="eyebrow">GENERATED OUTPUT</span><h3>SKILL.md</h3><p>根据当前规则自动组织的 Skill 入口文件。</p></div>
-          <pre><code><span>---</span>\nname: arknights-interface\ndescription: 创建宋黑结合的高对比工业终端界面。\n<span>---</span>\n\n# 工业界面视觉协议\n\n## 字体层级\n- 宋体：品牌、叙事与页面主标题。\n- 黑体：操作标题、按钮与正文。\n- Bender：数字、日期、编号与关键数据。\n- 新罗马：英文叙事与标签。\n\n## 状态规则\n- 亮青蓝表示选中、进度与重点数据；蓝底按钮统一使用白字。\n- 黄色表示活动与奖励。\n- 橙色表示未读更新，红色只表示危险。\n- 使用硬边、切角和向下软阴影；禁止网格、Hover 与蓝紫渐变。\n- 内容淡入 320ms，背景粒子持续漂浮；鼠标圆环跟随与点击扩散；支持减少动态效果。</code></pre>
+          <pre><code><span>---</span>\nname: arknights-interface\ndescription: 创建宋黑结合的高对比工业终端界面。\n<span>---</span>\n\n# 工业界面视觉协议\n\n## 字体层级\n- 宋体：品牌、叙事与页面主标题。\n- 黑体：操作标题、按钮与正文。\n- Bender：数字、日期、编号、关键数据与侧栏英文。\n- 新罗马：英文叙事与标签。\n\n## 状态规则\n- 亮青蓝表示选中、进度与重点数据；蓝底按钮统一使用白字。\n- 黄色表示活动与奖励。\n- 橙色表示未读更新，红色只表示危险。\n- 使用硬边、切角和向下软阴影；禁止网格、Hover 与蓝紫渐变。\n- 内容淡入 320ms，背景粒子持续漂浮；鼠标圆环跟随与点击扩散；支持减少动态效果。</code></pre>
           <button class="copy-button" id="copyBtn">${icon('copy')}复制</button>
         </section>
       </div>
@@ -332,7 +333,12 @@ function scrollToSection(section) {
     if (window.matchMedia('(max-width: 720px)').matches) target.scrollIntoView({ behavior, block: 'start' })
     else workspace.scrollTo({ top, behavior })
   }
-  document.querySelectorAll('.nav-item').forEach((item) => item.classList.toggle('active', item.dataset.page === section))
+  document.querySelectorAll('.nav-item').forEach((item) => {
+    const selected = item.dataset.page === section
+    item.classList.toggle('active', selected)
+    if (selected) item.setAttribute('aria-current', 'location')
+    else item.removeAttribute('aria-current')
+  })
 }
 
 document.querySelectorAll('[data-page], [data-jump]').forEach((button) => {
@@ -451,4 +457,8 @@ document.querySelector('#copyBtn').addEventListener('click', async () => {
 })
 
 const disposeTerminalEffects = mountTerminalEffects()
-if (import.meta.hot) import.meta.hot.dispose(disposeTerminalEffects)
+const disposeSidebarSearch = mountSidebarSearch(document.querySelector('.terminal-sidebar'))
+if (import.meta.hot) import.meta.hot.dispose(() => {
+  disposeTerminalEffects()
+  disposeSidebarSearch()
+})

@@ -195,11 +195,11 @@ body::before {
   z-index: 1;
   height: 100vh;
   min-height: 0;
-  grid-template-columns: 264px minmax(0, 1fr);
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
 }
 
 .rail {
-  width: 264px;
+  width: var(--sidebar-width);
   background: rgba(24, 26, 27, .84);
   border-right: 1px solid rgba(255,255,255,.28);
   box-shadow: 12px 0 30px rgba(0,0,0,.34);
@@ -240,10 +240,10 @@ body::before {
 .nav-item.active::before { height: 5px; background: var(--signal-blue); }
 .rail-footer { padding: 24px; background: rgba(10,11,12,.42); }
 
-main { position: fixed; inset: 0 0 0 264px; height: 100vh; overflow: hidden; }
+main { position: fixed; inset: 0 0 0 var(--sidebar-width); height: 100vh; overflow: hidden; }
 .topbar {
   position: fixed;
-  inset: 0 0 auto 264px;
+  inset: 0 0 auto var(--sidebar-width);
   height: 104px;
   padding: 0 34px;
   background: rgba(24,26,27,.72);
@@ -266,7 +266,7 @@ main { position: fixed; inset: 0 0 0 264px; height: 100vh; overflow: hidden; }
 
 .workspace {
   position: fixed;
-  inset: 104px 0 0 264px;
+  inset: 104px 0 0 var(--sidebar-width);
   width: auto;
   height: auto;
   max-width: none;
@@ -662,10 +662,10 @@ main { position: fixed; inset: 0 0 0 264px; height: 100vh; overflow: hidden; }
 .ui-result button:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
 
 @media (max-width: 1050px) {
-  .shell { grid-template-columns: 216px minmax(0,1fr); }
-  .rail { width: 216px; }
-  main { left: 216px; }
-  .topbar, .workspace { left: 216px; }
+  .shell { grid-template-columns: var(--sidebar-width) minmax(0,1fr); }
+  .rail { width: var(--sidebar-width); }
+  main { left: var(--sidebar-width); }
+  .topbar, .workspace { left: var(--sidebar-width); }
   .rail nav { padding-inline: 16px; }
   .nav-item { padding-inline: 18px; gap: 14px; }
   .workspace { padding-inline: 26px; }

@@ -11,9 +11,10 @@
 
 ## Navigation
 
-- Mark the current item with a signal-blue edge; use deep blue for selected text on light surfaces.
+- Use centered, unboxed text links on a transparent charcoal desktop sidebar. Mark the current item with signal-blue text, stronger weight, and `aria-current`; keep a single thin outer divider.
 - Reinforce selection with position, iconography, or weight instead of color alone.
-- Allow Noto Serif SC 700 in a brand-led wide sidebar. Use Noto Sans SC 400 or 700 for ordinary product navigation.
+- Use Noto Sans SC 400 for Chinese sidebar labels and Bender 400 for Latin labels; use 700 for the current item. Leave generous vertical intervals and omit large brand blocks, per-item borders, icons, and badges.
+- A sidebar search field filters navigation names, supports Escape to clear, and shows an honest empty state. Reset the filter when switching to bottom navigation.
 - Convert navigation to a fixed bottom bar on mobile without covering the end of the page.
 - Use light unselected tabs, a dark selected tab, and a cyan bottom edge. Reserve orange diamonds for unread or updated states.
 - Keep pagination at content width and center the complete button group inside its container.

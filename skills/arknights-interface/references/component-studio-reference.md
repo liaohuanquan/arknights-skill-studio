@@ -11,8 +11,8 @@ Use this reference for component catalogs, design-system pages, internal UI docu
 
 ## Composition to Reuse
 
-- Use a wide translucent charcoal rail for product identity and primary sections.
-- Present navigation as large bordered cards with one explicit selected state.
+- Use a transparent charcoal rail with a thin outer divider and a quiet navigation filter near the top.
+- Center unboxed text links in generous vertical intervals. Use white ordinary links and a blue, slightly heavier current item. Keep branding, card borders, selected fills, icons, and badges out of the desktop rail.
 - Fix a dark utility bar above an independently scrolling workspace.
 - Present components as consecutive horizontal documentation rows on desktop.
 - Keep the label column stable and give the instance area most of the width.
@@ -23,7 +23,7 @@ Use this reference for component catalogs, design-system pages, internal UI docu
 
 - Use Noto Serif SC 700 or 900 for the page title, section titles, and component names.
 - Use Noto Sans SC 400 or 700 for controls, explanations, and supporting labels.
-- Use Bender for numerals, metrics, dates, and numeric parts of identifiers; use Times New Roman for Latin words and labels.
+- Use Bender for numerals, metrics, dates, and numeric parts of identifiers; use Bender for sidebar Latin labels and Times New Roman for other Latin words and labels.
 - Keep sans-serif control labels visually lighter than major serif titles.
 
 ## Do Not Copy
