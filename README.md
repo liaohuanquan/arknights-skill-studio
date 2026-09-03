@@ -77,7 +77,7 @@ npm run dev
 - Use yellow for warnings and sparse priority accents.
 - Use Noto Serif SC for major Chinese titles, Noto Sans SC for controls and body copy, Bender for numerals and dates, and Times New Roman for Latin words.
 - Do not add button Hover states, full-page grids, blue-purple gradients, or oversized rounded glass cards.
-- Use neutral geometric backgrounds and brief entry transitions; decorative drift settles within 5 seconds and respects reduced-motion preferences.
+- Use neutral geometric backgrounds, continuously drifting sparse particles, and a thin mouse-following ring with click ripples. Pause particles in hidden tabs; reduced-motion preferences freeze particles and disable the ring.
 - Treat the bundled templates as composition references. Preserve the target product's framework, business structure, content, and terminology.
 
 ## Intellectual Property Notice

@@ -1,4 +1,5 @@
 import './style.css'
+import { mountTerminalEffects } from './terminal-effects.js'
 
 const icon = (name) => {
   const icons = {
@@ -298,7 +299,7 @@ app.innerHTML = `
 
         <section class="source-panel panel-cut" data-section="source">
           <div><span class="eyebrow">GENERATED OUTPUT</span><h3>SKILL.md</h3><p>根据当前规则自动组织的 Skill 入口文件。</p></div>
-          <pre><code><span>---</span>\nname: arknights-interface\ndescription: 创建宋黑结合的高对比工业终端界面。\n<span>---</span>\n\n# 工业界面视觉协议\n\n## 字体层级\n- 宋体：品牌、叙事与页面主标题。\n- 黑体：操作标题、按钮与正文。\n- Bender：数字、日期、编号与关键数据。\n- 新罗马：英文叙事与标签。\n\n## 状态规则\n- 亮青蓝表示选中、进度与重点数据；蓝底按钮统一使用白字。\n- 黄色表示活动与奖励。\n- 橙色表示未读更新，红色只表示危险。\n- 使用硬边、切角和向下软阴影；禁止网格、Hover 与蓝紫渐变。\n- 内容淡入 320ms，背景微动 4.8s 后静止；支持减少动态效果。</code></pre>
+          <pre><code><span>---</span>\nname: arknights-interface\ndescription: 创建宋黑结合的高对比工业终端界面。\n<span>---</span>\n\n# 工业界面视觉协议\n\n## 字体层级\n- 宋体：品牌、叙事与页面主标题。\n- 黑体：操作标题、按钮与正文。\n- Bender：数字、日期、编号与关键数据。\n- 新罗马：英文叙事与标签。\n\n## 状态规则\n- 亮青蓝表示选中、进度与重点数据；蓝底按钮统一使用白字。\n- 黄色表示活动与奖励。\n- 橙色表示未读更新，红色只表示危险。\n- 使用硬边、切角和向下软阴影；禁止网格、Hover 与蓝紫渐变。\n- 内容淡入 320ms，背景粒子持续漂浮；鼠标圆环跟随与点击扩散；支持减少动态效果。</code></pre>
           <button class="copy-button" id="copyBtn">${icon('copy')}复制</button>
         </section>
       </div>
@@ -448,3 +449,6 @@ document.querySelector('#copyBtn').addEventListener('click', async () => {
   await navigator.clipboard.writeText(document.querySelector('pre').innerText)
   showToast('SKILL.md 已复制')
 })
+
+const disposeTerminalEffects = mountTerminalEffects()
+if (import.meta.hot) import.meta.hot.dispose(disposeTerminalEffects)

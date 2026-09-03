@@ -1,4 +1,5 @@
 import './style.css'
+import { mountTerminalEffects } from './terminal-effects.js'
 
 const stationData = {
   'PS-01': { code: 'PS-01 / HUB', name: '白原中继站', status: '● 在线', statusClass: 'badge--success', coordinate: '77.85°S, 166.67°E', latency: '342 ms', sync: '18 秒前', firmware: '4.12.7' },
@@ -264,3 +265,6 @@ navLinks.forEach((link) => {
     navLinks.filter((item) => item.getAttribute('href') !== target).forEach((item) => item.classList.remove('is-active'))
   })
 })
+
+const disposeTerminalEffects = mountTerminalEffects()
+if (import.meta.hot) import.meta.hot.dispose(disposeTerminalEffects)

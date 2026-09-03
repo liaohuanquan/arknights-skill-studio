@@ -23,15 +23,48 @@
   --motion-enter: 320ms;
 }
 
-/* A quiet layer behind the application; the arrival drift settles after 4.8s. */
-body::after {
-  content: '';
+.terminal-particles {
   position: fixed;
-  inset: -24px;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  background: url('./assets/terminal-dust.svg') center / cover;
-  opacity: .24;
-  animation: terminal-drift 4800ms ease-out both;
+}
+
+.terminal-cursor {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: difference;
+}
+
+.terminal-cursor.is-visible { opacity: 1; }
+.terminal-cursor__ring, .terminal-cursor__ripple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid rgba(255, 255, 255, .8);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.terminal-cursor__ring {
+  width: 36px;
+  height: 36px;
+  transition: width var(--motion-fast), height var(--motion-fast), background-color var(--motion-fast);
+}
+.terminal-cursor.is-interactive .terminal-cursor__ring {
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, .16);
+}
+.terminal-cursor__ripple {
+  width: 80px;
+  height: 80px;
+  border-width: 2px;
+  opacity: 0;
 }
 
 .terminal-enter {
@@ -51,12 +84,6 @@ body::after {
 @keyframes terminal-progress {
   from { transform: scaleX(0); }
   to { transform: scaleX(1); }
-}
-
-@keyframes terminal-drift {
-  from { opacity: 0; transform: translate(18px, 12px); }
-  20% { opacity: .24; }
-  to { opacity: .24; transform: translate(0, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {

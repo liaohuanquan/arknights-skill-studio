@@ -86,7 +86,7 @@ Clipped-corner example:
 ## Background and Decoration
 
 - Use neutral geometric silhouettes and faint grain or diagonal texture behind the content. Keep backgrounds subordinate to solid or nearly opaque content surfaces. Do not use a full-page grid.
-- Sparse dust can move once on entry and settle within 5 seconds. Keep this layer non-interactive and behind the application; use the original SVG assets from the templates.
+- For terminal atmosphere, continuously drift sparse white particles behind the application on a non-interactive canvas. Use the shared `terminal-effects.js` implementation: cap density at 70 particles, drawing at 30fps, and device pixel ratio at 1.5; pause in hidden tabs.
 - Keep texture opacity low enough to preserve text contrast.
 - Avoid extensive glowing outlines and do not treat cyberpunk neon as the default direction.
 - Keep foreground text sharp; never blur it with the background.
@@ -104,5 +104,6 @@ Clipped-corner example:
 
 - Do not provide button Hover styles. Pointer movement must not change position, shadow, color, or background.
 - Express interaction through selected, pressed, keyboard-focus, and disabled states. Use 160ms state transitions and 320ms content entry with opacity and at most 8px displacement. Progress entry may take up to 640ms.
-- Keep decorative animation finite. Show real numbers immediately and do not replay entry animation during data refreshes.
-- For `prefers-reduced-motion: reduce`, render final states immediately and disable animations, transitions, and smooth scrolling, including pseudo-elements. Avoid persistent flashing and meaningless scanning effects.
+- Keep content-entry and click-ripple animations finite. Background particles may drift continuously; show real numbers immediately and do not replay entry animation during data refreshes.
+- On a fine mouse pointer, add a 36px thin ring with a slight follow delay, shrink it to 24px over controls, and show a 500ms click ripple. Retain native pointer semantics. Keep these overlays non-interactive and out of the accessibility tree.
+- For `prefers-reduced-motion: reduce`, freeze particles, remove the cursor ring and ripple, render final states immediately, and disable animations, transitions, and smooth scrolling, including pseudo-elements. Avoid persistent flashing and meaningless scanning effects.

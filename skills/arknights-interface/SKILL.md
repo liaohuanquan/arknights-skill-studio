@@ -31,7 +31,7 @@ Create clear, usable, and restrained industrial terminal interfaces. Extract the
 - Use Noto Serif SC as the primary Chinese typeface for brand, page, section, and component titles at weights 700–900.
 - Use Noto Sans SC for Chinese navigation, controls, body copy, and supporting text at weights 400 or 700 only. Use Bender 400 or 700 for numerals, dates, and numeric parts of identifiers. Use Times New Roman for Latin words. Keep code blocks on an SF Mono-first stack.
 - Use Noto Sans SC for navigation by default. A brand-led studio or archive sidebar may use Noto Serif SC 700, while action controls remain sans serif.
-- Build hierarchy with type scale, spacing, borders, and contrast. Use neutral geometric backgrounds with faint texture. Keep entry motion brief and decorative drift finite; respect reduced-motion preferences. Decoration must not reduce readability.
+- Build hierarchy with type scale, spacing, borders, and contrast. Use neutral geometric backgrounds with faint texture. Keep entry motion brief. For the terminal treatment, add continuously drifting sparse particles and a thin mouse-following ring with click ripples. Pause particles in hidden tabs; reduced-motion preferences freeze particles and disable the ring. Decoration must not reduce readability.
 - Never communicate an important state with color alone. Buttons must not change on Hover; provide pressed, selected, focus, and disabled states instead.
 - Do not copy game logos, official icons, characters, artwork, or exact layouts. Reuse only typography, panel hierarchy, and industrial interface principles.
 
