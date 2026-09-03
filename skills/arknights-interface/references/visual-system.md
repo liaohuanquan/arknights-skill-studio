@@ -9,9 +9,10 @@
   --ink: #242627;
   --panel-dark: #303233;
   --muted: #777b7d;
-  --primary-cyan: #22bbff;
-  --text-cyan: #006b8c;
   --signal-blue: #22bbff;
+  --primary-cyan: var(--signal-blue);
+  --cyan: var(--signal-blue);
+  --text-cyan: #006b8c;
   --success: #45c685;
   --warning: #ffd200;
   --danger: #d74a40;
@@ -21,7 +22,7 @@
 ```
 
 - Cover most of the interface with black, charcoal, gray, and cool white.
-- Use signal blue `#22bbff` for selected markers, progress, and critical readings on dark surfaces.
+- Use signal blue `#22bbff` for selected controls and progress fills on both light and dark surfaces, and for critical readings on dark surfaces. Switches, checkboxes, radios, sliders, steps, selected options, and state markers share this token. Keep legacy control tokens such as `--cyan` aliased to `--signal-blue`, never to the deep text color.
 - All blue-background buttons must use white text on reference blue `#22bbff`. Keep deep blue `#006b8c` for text on paper; do not darken button fills when applying white labels. Preserve the target product's high-contrast keyboard focus ring. Keep blue markers paired with a label, shape, or state change.
 - Use yellow for limited-time content, rewards, and high-priority notices. Use orange for unread, new, or updated markers.
 - Allow sparse yellow rules, nodes, and diagonal connections in a brand hero. Do not make yellow the default decoration for ordinary components.

@@ -17,7 +17,7 @@
   --panel-deep: #191c1d;
   --muted: #6e7475;
   --line: rgba(24, 27, 28, 0.2);
-  --cyan: #006b8c;
+  --cyan: var(--signal-blue);
   --cyan-dark: #005e76;
   --success: #27855b;
   --warning: #ffd200;

@@ -73,7 +73,7 @@ npm run dev
 ## Design Boundaries
 
 - Use black, charcoal, gray, and cool white as the base palette.
-- Use bright signal blue (`#22bbff`) for markers and values on dark surfaces. Blue buttons use the reference blue (`#22bbff`) with white text; blue text on light surfaces uses deep blue (`#006b8c`).
+- Use bright signal blue (`#22bbff`) for selected controls, state markers, and progress fills on light and dark surfaces, and values on dark surfaces. Keep legacy control tokens aliased to this same signal blue. Blue buttons use the reference blue (`#22bbff`) with white text; blue text on light surfaces uses deep blue (`#006b8c`).
 - Use yellow for warnings and sparse priority accents.
 - Use Noto Serif SC for major Chinese titles, Noto Sans SC for controls and body copy, Bender for numerals and dates, and Times New Roman for Latin words outside navigation. Sidebar labels use Bender for Latin and system sans-serif for Chinese at 16px and weight 400, including the current item.
 - Do not add button Hover states, full-page grids, blue-purple gradients, or oversized rounded glass cards.

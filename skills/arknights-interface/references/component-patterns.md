@@ -30,7 +30,7 @@
 - Pair large Bender 400 or 700 values with smaller units and labels. Do not use Noto Sans SC 900 for metrics.
 - Group information with borders, spacing, and tonal contrast instead of rounded-card stacks.
 - Use semantic colors only for success, warning, or error information.
-- Keep chart lines low contrast and use signal blue for key data points on dark plots and deep blue on light plots.
+- Keep chart guide lines low contrast. Use signal blue `#22bbff` for data marks and progress fills on both light and dark surfaces; reserve deep blue for text on light surfaces.
 
 ## Panels and Dialogs
 
@@ -42,7 +42,7 @@
 ## Forms
 
 - Keep labels persistent instead of relying on placeholders.
-- Use a deep-cyan focus border while preserving native accessible focus semantics.
+- Use signal-blue control borders while preserving native accessible focus semantics. Switches, checkboxes, radios, sliders, and selected options use `#22bbff` on light and dark surfaces.
 - Pair red error styling with explanatory text.
 - Keep inputs, selects, and buttons at a consistent height with hard-edge geometry.
 - Use a custom listbox when visual consistency requires it. Preserve `aria-expanded`, `listbox` and `option` roles, arrow-key movement, and `Escape` closing.
