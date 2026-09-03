@@ -7,7 +7,7 @@ Visual reference: [Yue-plus/hexo-theme-arknights](https://github.com/Yue-plus/he
 | Element | Application |
 | --- | --- |
 | Numerals | Bender 400 or 700 for digits, dates, counters, ratios, and numeric parts of identifiers. Let Chinese and Latin words retain their existing families. Keep code on its monospace stack. |
-| Signal blue | `#22bbff` for selected markers, progress, and important values on charcoal. All blue-background buttons use white text on `#006b8c`. Use the same deeper blue for blue text on paper. |
+| Signal blue | `#22bbff` for selected markers, progress, and important values on charcoal. All blue-background buttons use white text on `#22bbff`. Use deeper blue `#006b8c` only for blue text on paper. |
 | State motion | Use 160ms transitions for selection markers, 320ms opacity/8px translation for entering content, and up to 640ms for a progress fill entering view. Display actual values immediately. |
 | Atmosphere | Neutral industrial silhouettes, faint surface texture, and sparse dust behind opaque content surfaces. The example dust settles after a single 4.8s arrival animation. |
 

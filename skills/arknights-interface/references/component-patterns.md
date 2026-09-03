@@ -2,7 +2,7 @@
 
 ## Buttons
 
-- All blue-background buttons use white text, including primary actions and selected button states. Use deep blue `#006b8c` for these fills. Keep hard edges and restrained shadows.
+- All blue-background buttons use white text, including primary actions and selected button states. Use reference blue `#22bbff` for these fills. Keep hard edges and restrained shadows.
 - Use a light or charcoal fill, a visible border, and the same height as the primary button for secondary actions.
 - Use red only for destructive or irreversible actions.
 - Reduce saturation and contrast for disabled buttons while keeping labels readable.

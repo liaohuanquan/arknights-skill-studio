@@ -73,7 +73,7 @@ npm run dev
 ## Design Boundaries
 
 - Use black, charcoal, gray, and cool white as the base palette.
-- Use bright signal blue (`#22bbff`) for markers and values on dark surfaces. Blue buttons use deep blue (`#006b8c`) with white text; blue text on light surfaces also uses the deeper shade.
+- Use bright signal blue (`#22bbff`) for markers and values on dark surfaces. Blue buttons use the reference blue (`#22bbff`) with white text; blue text on light surfaces uses deep blue (`#006b8c`).
 - Use yellow for warnings and sparse priority accents.
 - Use Noto Serif SC for major Chinese titles, Noto Sans SC for controls and body copy, Bender for numerals and dates, and Times New Roman for Latin words.
 - Do not add button Hover states, full-page grids, blue-purple gradients, or oversized rounded glass cards.

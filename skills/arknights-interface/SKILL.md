@@ -24,7 +24,7 @@ Create clear, usable, and restrained industrial terminal interfaces. Extract the
 
 ## Core Constraints
 
-- Use black, charcoal, and cool white as the base. Use bright signal blue on dark surfaces for selected markers, progress, and key values. All blue-background buttons use white text. Use deep blue for button fills and for blue text on paper.
+- Use black, charcoal, and cool white as the base. Use bright signal blue on dark surfaces for selected markers, progress, and key values. All blue-background buttons use reference blue `#22bbff` with white text. Use deep blue only for blue text on paper, not as a substitute button fill.
 - Use yellow for limited-time content, rewards, high-priority notices, and sparse brand lines. Use orange for unread or new markers. Reserve red for danger and failure.
 - Do not use blue-purple gradients, excessive neon, low-contrast glassmorphism, or soft oversized rounded cards.
 - Prefer rectangles, hard edges, thin borders, and occasional clipped corners. Keep default corner radii at `0–2px`.

@@ -527,9 +527,9 @@ h1 {
 }
 
 .button--primary {
-  background: var(--cyan);
+  background: var(--signal-blue);
   color: white;
-  border-color: var(--cyan);
+  border-color: var(--signal-blue);
   box-shadow: 0 10px 13px -9px rgba(0, 0, 0, 0.8);
 }
 
