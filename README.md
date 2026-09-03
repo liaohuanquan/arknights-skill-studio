@@ -75,7 +75,7 @@ npm run dev
 - Use black, charcoal, gray, and cool white as the base palette.
 - Use bright signal blue (`#22bbff`) for markers and values on dark surfaces. Blue buttons use the reference blue (`#22bbff`) with white text; blue text on light surfaces uses deep blue (`#006b8c`).
 - Use yellow for warnings and sparse priority accents.
-- Use Noto Serif SC for major Chinese titles, Noto Sans SC for controls and body copy, Bender for numerals and dates, and Times New Roman for Latin words outside navigation. Sidebar Latin labels also use Bender.
+- Use Noto Serif SC for major Chinese titles, Noto Sans SC for controls and body copy, Bender for numerals and dates, and Times New Roman for Latin words outside navigation. Sidebar labels use Bender for Latin and system sans-serif for Chinese at 16px and weight 400, including the current item.
 - Do not add button Hover states, full-page grids, blue-purple gradients, or oversized rounded glass cards.
 - Use a transparent charcoal sidebar with centered text links, generous vertical spacing, a quiet navigation filter, and a blue current item. Avoid boxed navigation cards and large sidebar branding.
 - Use neutral geometric backgrounds, continuously drifting sparse particles, and a thin mouse-following ring with click ripples. Pause particles in hidden tabs; reduced-motion preferences freeze particles and disable the ring.

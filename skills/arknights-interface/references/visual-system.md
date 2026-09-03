@@ -60,9 +60,10 @@
 | Content | Typeface | Weight |
 | --- | --- | --- |
 | Chinese brand, page, section, and component titles | Noto Serif SC | 700 or 900 |
-| Chinese navigation, buttons, body copy, and supporting text | Noto Sans SC | 400 or 700 |
+| Chinese buttons, body copy, and supporting text | Noto Sans SC | 400 or 700 |
 | Numerals, dates, counters, ratios, and numeric parts of identifiers | Bender | 400 or 700 |
-| Sidebar Latin labels | Bender | 400; current item 700 |
+| Sidebar Latin labels | Bender, 16px | 400, including the current item |
+| Sidebar Chinese labels | System sans-serif: PingFang SC, Microsoft YaHei, sans-serif; 16px | 400, including the current item |
 | Other Latin words and narrative labels | Times New Roman | 400 or 700 |
 | Code blocks, paths, and configuration fragments | SF Mono-first monospace stack | 400 or 700 |
 
@@ -96,7 +97,7 @@ Clipped-corner example:
 
 - Brand hero: use a cool-white field, a prominent serif narrative title, sparse yellow diagonal connections, and a dark utility region.
 - Studio or component library: use a compact transparent charcoal sidebar (184px desktop, 168px on narrower desktop screens; share one width token with content offsets), fixed top bar, and independently scrolling content area. Center unboxed text links with generous vertical spacing. Use a quiet navigation filter and one thin outer divider; omit large brand blocks, item borders, desktop icons, and selected fills.
-- Sidebar typography: use Noto Sans SC for Chinese and a separate Bender Latin face for English labels. Ordinary links are white at weight 400; the current item is signal blue at 700 and has `aria-current`. Keep the numeric-only Bender face unchanged elsewhere.
+- Sidebar typography: use a dedicated `--font-sidebar` stack with Bender for Latin and system sans-serif (PingFang SC, Microsoft YaHei, sans-serif) for Chinese. Labels are 16px, and the navigation filter is 15px. All labels stay at weight 400; ordinary links are white and the current item is signal blue with `aria-current`. Keep the numeric-only Bender face unchanged elsewhere.
 - Component catalog: use horizontal label-instance rows on desktop and stack the label above the instance on narrow screens.
 - Data review page: place navigation and filters on the left, primary content in the center, and metadata or validation actions on the right.
 - Device console: place device identity, connection state, and global actions at the top; show key metrics and warnings before detailed forms and logs.

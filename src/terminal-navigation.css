@@ -6,15 +6,10 @@
   unicode-range: U+0020-007E;
 }
 
-@font-face {
-  font-family: 'Interface Navigation';
-  src: url('./assets/Bender-Bold.otf') format('opentype');
-  font-weight: 700;
-  font-display: swap;
-  unicode-range: U+0020-007E;
+:root {
+  --sidebar-width: 184px;
+  --font-sidebar: 'Interface Navigation', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
-
-:root { --sidebar-width: 184px; }
 
 .terminal-sidebar {
   padding: clamp(64px, 18vh, 180px) 16px clamp(24px, 9vh, 90px);
@@ -39,8 +34,8 @@
   border-radius: 0;
   background: transparent;
   color: #eceeee;
-  font-family: var(--font-sans);
-  font-size: 18px;
+  font-family: var(--font-sidebar);
+  font-size: 15px;
   font-weight: 400;
   text-align: center;
 }
@@ -73,8 +68,8 @@
   background: transparent;
   color: #f3f4f4;
   box-shadow: none;
-  font-family: 'Interface Navigation', 'Noto Sans SC', sans-serif;
-  font-size: 22px;
+  font-family: var(--font-sidebar);
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.4;
   text-align: center;
@@ -83,7 +78,6 @@
 
 .terminal-sidebar .terminal-sidebar__link[aria-current='location'] {
   color: var(--signal-blue);
-  font-weight: 700;
 }
 
 .terminal-sidebar .terminal-sidebar__link::before,

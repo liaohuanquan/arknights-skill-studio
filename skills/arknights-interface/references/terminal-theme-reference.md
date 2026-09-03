@@ -6,7 +6,7 @@ Visual reference: [Yue-plus/hexo-theme-arknights](https://github.com/Yue-plus/he
 
 | Element | Application |
 | --- | --- |
-| Sidebar | Compact width: 184px desktop, 168px on narrower desktop screens. Transparent charcoal surface, one thin outer divider, a quiet navigation filter near the top, centered unboxed white links, generous vertical spacing, and a blue current item. Chinese labels use Noto Sans SC and Latin labels use Bender; omit desktop icons, number badges, selected fills, and large brand blocks. |
+| Sidebar | Compact width: 184px desktop, 168px on narrower desktop screens. Transparent charcoal surface, one thin outer divider, a quiet navigation filter near the top, centered unboxed white links, generous vertical spacing, and a blue current item. Use 16px regular-weight Bender for Latin and system sans-serif (PingFang SC, Microsoft YaHei, sans-serif) for Chinese; keep the current item at weight 400 and the filter at 15px; omit desktop icons, number badges, selected fills, and large brand blocks. |
 | Numerals | Bender 400 or 700 for digits, dates, counters, ratios, and numeric parts of identifiers. Let Chinese and Latin words retain their existing families. Keep code on its monospace stack. |
 | Signal blue | `#22bbff` for selected markers, progress, and important values on charcoal. All blue-background buttons use white text on `#22bbff`. Use deeper blue `#006b8c` only for blue text on paper. |
 | State motion | Use 160ms transitions for selection markers, 320ms opacity/8px translation for entering content, and up to 640ms for a progress fill entering view. Display actual values immediately. |

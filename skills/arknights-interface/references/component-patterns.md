@@ -11,9 +11,9 @@
 
 ## Navigation
 
-- Use centered, unboxed text links on a transparent charcoal desktop sidebar. Mark the current item with signal-blue text, stronger weight, and `aria-current`; keep a single thin outer divider.
-- Reinforce selection with position, iconography, or weight instead of color alone.
-- Use Noto Sans SC 400 for Chinese sidebar labels and Bender 400 for Latin labels; use 700 for the current item. Leave generous vertical intervals and omit large brand blocks, per-item borders, icons, and badges.
+- Use centered, unboxed text links on a transparent charcoal desktop sidebar. Mark the current item with signal-blue text and `aria-current`, keeping its regular weight; keep a single thin outer divider.
+- Keep the current destination identifiable through its page heading and `aria-current`; mobile navigation also retains a selected underline.
+- Use 16px Bender 400 for Latin sidebar labels and system sans-serif (PingFang SC, Microsoft YaHei, sans-serif) for Chinese. Keep all items at 400, including the current item; use the same font stack at 15px for the filter. Leave generous vertical intervals and omit large brand blocks, per-item borders, icons, and badges.
 - A sidebar search field filters navigation names, supports Escape to clear, and shows an honest empty state. Reset the filter when switching to bottom navigation.
 - Convert navigation to a fixed bottom bar on mobile without covering the end of the page.
 - Use light unselected tabs, a dark selected tab, and a cyan bottom edge. Reserve orange diamonds for unread or updated states.
