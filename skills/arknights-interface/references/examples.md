@@ -21,7 +21,7 @@ Use $arknights-interface to refine this mobile screen, focusing on bottom naviga
 - Left: review navigation and filters.
 - Center: media preview, timeline, and annotations.
 - Right: metadata, validation results, and submission actions.
-- Use deep cyan for the current frame and primary action. Use red for invalid data.
+- Use signal blue for selected markers on dark surfaces and deep-blue primary actions with white text. Use red for invalid data.
 
 ### Device Console
 

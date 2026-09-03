@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'Interface Numeric';
+  src: url('./assets/Bender-Regular.otf') format('opentype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0025, U+002B-003A, U+00B0, U+00D7, U+2032-2033, U+2212;
+}
+
+@font-face {
+  font-family: 'Interface Numeric';
+  src: url('./assets/Bender-Bold.otf') format('opentype');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  unicode-range: U+0025, U+002B-003A, U+00B0, U+00D7, U+2032-2033, U+2212;
+}
+
+:root {
+  --signal-blue: #22bbff;
+  --font-numeric: 'Interface Numeric', 'Interface Latin', 'Noto Sans SC', sans-serif;
+  --motion-fast: 160ms;
+  --motion-enter: 320ms;
+}
+
+/* A quiet layer behind the application; the arrival drift settles after 4.8s. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: -24px;
+  pointer-events: none;
+  background: url('./assets/terminal-dust.svg') center / cover;
+  opacity: .24;
+  animation: terminal-drift 4800ms ease-out both;
+}
+
+.terminal-enter {
+  animation: terminal-enter var(--motion-enter) ease-out both;
+}
+
+.terminal-progress {
+  transform-origin: left center;
+  animation: terminal-progress 640ms cubic-bezier(.2, .7, .2, 1) both;
+}
+
+@keyframes terminal-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes terminal-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes terminal-drift {
+  from { opacity: 0; transform: translate(18px, 12px); }
+  20% { opacity: .24; }
+  to { opacity: .24; transform: translate(0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

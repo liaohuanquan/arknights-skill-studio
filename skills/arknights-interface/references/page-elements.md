@@ -16,7 +16,7 @@ Select elements from this catalog when building design-system pages, device cons
 | --- | --- | --- |
 | Rules hero | Narrative title, short rule summary, primary action, secondary action, completion panel | Serif title, sparse yellow lines, one clear primary action |
 | Design-token card | Label, large value or swatch, usage note | Color, geometry, contrast, or semantic state |
-| Type specimen | Serif, sans-serif, and Times New Roman samples | Usage, weight, and realistic Chinese and Latin copy |
+| Type specimen | Chinese serif/sans-serif, Bender numerals, and Latin word samples | Usage, weight, and realistic Chinese and Latin copy |
 | Rules checklist | Check state, rule name, explanation, index | Never communicate completion with color alone |
 | Live preview | Context label, status, key metric, simple chart, actions | Use realistic product copy instead of decorative Latin text only |
 

@@ -23,7 +23,7 @@ Use this reference for component catalogs, design-system pages, internal UI docu
 
 - Use Noto Serif SC 700 or 900 for the page title, section titles, and component names.
 - Use Noto Sans SC 400 or 700 for controls, explanations, and supporting labels.
-- Use Times New Roman for Latin labels, indices, metrics, dates, and identifiers.
+- Use Bender for numerals, metrics, dates, and numeric parts of identifiers; use Times New Roman for Latin words and labels.
 - Keep sans-serif control labels visually lighter than major serif titles.
 
 ## Do Not Copy

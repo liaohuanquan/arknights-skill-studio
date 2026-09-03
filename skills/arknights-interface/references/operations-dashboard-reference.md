@@ -22,10 +22,10 @@ Use this reference for monitoring dashboards, device consoles, review queues, ad
 
 ## State and Data Treatment
 
-- Use large Times New Roman values with smaller units and labels.
+- Use large Bender values with smaller units and labels.
 - Pair semantic color with text, shape, border, or symbols.
 - Reserve yellow for warnings and high-priority notices.
-- Reserve cyan for executable actions, selected nodes, progress, and focus.
+- Use signal blue for selected markers, progress, and key values on dark surfaces; use deep blue for text on light surfaces. Preserve the existing high-contrast keyboard focus ring.
 - Keep tables horizontally scrollable on narrow screens.
 - Keep alerts dismissible only when dismissal is valid for the target workflow.
 

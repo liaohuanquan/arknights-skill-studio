@@ -73,10 +73,11 @@ npm run dev
 ## Design Boundaries
 
 - Use black, charcoal, gray, and cool white as the base palette.
-- Use cyan for primary actions, selected states, focus, and critical readings.
+- Use bright signal blue (`#22bbff`) for markers and values on dark surfaces. Blue buttons use deep blue (`#006b8c`) with white text; blue text on light surfaces also uses the deeper shade.
 - Use yellow for warnings and sparse priority accents.
-- Use Noto Serif SC for major Chinese titles, Noto Sans SC for controls and body copy, and Times New Roman for Latin text and numbers.
+- Use Noto Serif SC for major Chinese titles, Noto Sans SC for controls and body copy, Bender for numerals and dates, and Times New Roman for Latin words.
 - Do not add button Hover states, full-page grids, blue-purple gradients, or oversized rounded glass cards.
+- Use neutral geometric backgrounds and brief entry transitions; decorative drift settles within 5 seconds and respects reduced-motion preferences.
 - Treat the bundled templates as composition references. Preserve the target product's framework, business structure, content, and terminology.
 
 ## Intellectual Property Notice
@@ -86,3 +87,5 @@ This is an independent, unofficial project. It is not affiliated with, endorsed 
 ## License
 
 Original source code and documentation in this repository are released under the [MIT License](LICENSE).
+
+Bundled Bender fonts use the SIL Open Font License 1.1. See the [font license](public/fonts/Bender-OFL.txt) and [source note](public/fonts/Bender-SOURCE.txt).

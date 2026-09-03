@@ -36,17 +36,17 @@ app.innerHTML = `
       </header>
 
       <div class="workspace">
-        <section class="hero panel-cut">
+        <section class="hero panel-cut terminal-enter">
           <div class="hero-network" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><b></b><b></b><b></b></div>
-          <div class="hero-copy"><span class="kicker">RHODES INTERFACE SPEC / 01</span><h2>视觉协议<br><em>转译为规则。</em></h2><p>用宋体建立叙事与品牌感，用黑体承载操作和正文，再以新罗马体组织英文、任务编号和终端数据。</p><div class="hero-actions"><button class="button primary" data-jump="rules">开始配置 ${icon('sliders')}</button><button class="text-button" data-jump="source">查看 SKILL.md →</button></div></div>
-          <div class="telemetry" aria-label="Skill 完成度"><div class="rings"><span>98<small>%</small></span></div><p>规则完成度</p><div class="meter"><i></i></div><ul><li><span>视觉令牌</span><b>20/20</b></li><li><span>组件模式</span><b>22/22</b></li><li><span>使用示例</span><b>19/19</b></li></ul></div>
+          <div class="hero-copy"><span class="kicker">RHODES INTERFACE SPEC / 01</span><h2>视觉协议<br><em>转译为规则。</em></h2><p>用宋体建立叙事与品牌感，用黑体承载操作和正文，用 Bender 呈现数字与时间，让青蓝状态标记连接操作与终端数据。</p><div class="hero-actions"><button class="button primary" data-jump="rules">开始配置 ${icon('sliders')}</button><button class="text-button" data-jump="source">查看 SKILL.md →</button></div></div>
+          <div class="telemetry" aria-label="Skill 完成度"><div class="rings"><span>98<small>%</small></span></div><p>规则完成度</p><div class="meter"><i class="terminal-progress"></i></div><ul><li><span>视觉令牌</span><b>20/20</b></li><li><span>组件模式</span><b>22/22</b></li><li><span>使用示例</span><b>19/19</b></li></ul></div>
           <span class="hero-index">01</span>
         </section>
 
         <section class="section-block" data-section="overview">
           <div class="section-title"><div><span class="eyebrow">SYSTEM OVERVIEW</span><h3>设计系统概览</h3></div><button class="square-button" aria-label="新增规则">${icon('plus')}</button></div>
           <div class="stat-grid">
-            <article class="stat-card dark"><span>PRIMARY ACCENT</span><strong>#0088AD</strong><div class="swatch cyan"></div><small>信息 / 选择 / 确认</small></article>
+            <article class="stat-card dark"><span>SIGNAL BLUE</span><strong>#22BBFF</strong><div class="swatch cyan"></div><small>信息 / 选择 / 确认</small></article>
             <article class="stat-card"><span>GEOMETRY</span><strong>02<sup>PX</sup></strong><div class="corner-demo"></div><small>硬边 / 切角 / 明确分层</small></article>
             <article class="stat-card"><span>CONTRAST</span><strong>14.8<sup>:1</sup></strong><div class="bars"><i></i><i></i><i></i></div><small>AA 标准 / 主要文本</small></article>
             <article class="stat-card warning"><span>STATUS COLORS</span><div class="status-colors"><i></i><i></i><i></i></div><strong>03</strong><small>提示 / 警告 / 危险</small></article>
@@ -54,7 +54,7 @@ app.innerHTML = `
           <div class="type-specimen" aria-label="字体系统样张">
             <div class="type-serif"><span>01 / NARRATIVE SERIF</span><b>叙事标题与品牌表达</b><small>Noto Serif SC · 700 / 900</small></div>
             <div class="type-display"><span>02 / OPERATION SANS</span><b>任务操作与状态指令</b><small>Noto Sans SC · 400 / 700</small></div>
-            <div class="type-data"><span>03 / LATIN & NUMERALS</span><b>24.8 <i>MS</i>　06 / 08</b><small>Times New Roman · 400 / 700</small></div>
+            <div class="type-data"><span>03 / TERMINAL NUMERALS</span><b>24.8 <i>MS</i>　06 / 08</b><small>Bender · 400 / 700</small></div>
           </div>
         </section>
 
@@ -63,7 +63,7 @@ app.innerHTML = `
             <div class="section-title compact"><div><span class="eyebrow">CORE RULES</span><h3>核心视觉规则</h3></div><span class="counter">06 / 06</span></div>
             <div class="rule-list">
               <label><input type="checkbox" checked><span class="check">${icon('check')}</span><span><b>中性色为画布</b><small>黑、炭灰、灰白构成主要层级</small></span><i>01</i></label>
-              <label><input type="checkbox" checked><span class="check">${icon('check')}</span><span><b>青色只用于交互</b><small>强调选择、确认与关键数据</small></span><i>02</i></label>
+              <label><input type="checkbox" checked><span class="check">${icon('check')}</span><span><b>青蓝标记操作与数据</b><small>亮青蓝用于深色状态，深青色用于浅色正文</small></span><i>02</i></label>
               <label><input type="checkbox" checked><span class="check">${icon('check')}</span><span><b>矩形与切角几何</b><small>圆角不超过 2px，保持机械感</small></span><i>03</i></label>
               <label><input type="checkbox" checked><span class="check">${icon('check')}</span><span><b>清晰的信息层级</b><small>以字号、留白、边框和对比区分</small></span><i>04</i></label>
               <label><input type="checkbox" checked><span class="check">${icon('check')}</span><span><b>宋体与黑体分工</b><small>宋体负责叙事，黑体负责操作与正文</small></span><i>05</i></label>
@@ -298,7 +298,7 @@ app.innerHTML = `
 
         <section class="source-panel panel-cut" data-section="source">
           <div><span class="eyebrow">GENERATED OUTPUT</span><h3>SKILL.md</h3><p>根据当前规则自动组织的 Skill 入口文件。</p></div>
-          <pre><code><span>---</span>\nname: arknights-interface\ndescription: 创建宋黑结合的高对比工业终端界面。\n<span>---</span>\n\n# 工业界面视觉协议\n\n## 字体层级\n- 宋体：品牌、叙事与页面主标题。\n- 黑体：操作标题、按钮与正文。\n- 新罗马：英文、日期、编号、倍率与关键数据。\n\n## 状态规则\n- 青色表示可执行操作，黄色表示活动与奖励。\n- 橙色表示未读更新，红色只表示危险。\n- 使用硬边、切角和向下软阴影；禁止网格、Hover 与蓝紫渐变。</code></pre>
+          <pre><code><span>---</span>\nname: arknights-interface\ndescription: 创建宋黑结合的高对比工业终端界面。\n<span>---</span>\n\n# 工业界面视觉协议\n\n## 字体层级\n- 宋体：品牌、叙事与页面主标题。\n- 黑体：操作标题、按钮与正文。\n- Bender：数字、日期、编号与关键数据。\n- 新罗马：英文叙事与标签。\n\n## 状态规则\n- 亮青蓝表示选中、进度与重点数据；蓝底按钮统一使用白字。\n- 黄色表示活动与奖励。\n- 橙色表示未读更新，红色只表示危险。\n- 使用硬边、切角和向下软阴影；禁止网格、Hover 与蓝紫渐变。\n- 内容淡入 320ms，背景微动 4.8s 后静止；支持减少动态效果。</code></pre>
           <button class="copy-button" id="copyBtn">${icon('copy')}复制</button>
         </section>
       </div>
@@ -327,7 +327,9 @@ function scrollToSection(section) {
   const target = document.querySelector(`[data-section="${section}"]`)
   if (workspace && target) {
     const top = target.getBoundingClientRect().top - workspace.getBoundingClientRect().top + workspace.scrollTop - 18
-    workspace.scrollTo({ top, behavior: 'smooth' })
+    const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    if (window.matchMedia('(max-width: 720px)').matches) target.scrollIntoView({ behavior, block: 'start' })
+    else workspace.scrollTo({ top, behavior })
   }
   document.querySelectorAll('.nav-item').forEach((item) => item.classList.toggle('active', item.dataset.page === section))
 }

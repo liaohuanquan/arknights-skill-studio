@@ -68,7 +68,8 @@ document.querySelector('#locate-device').addEventListener('click', () => {
   const station = detailFields.code.textContent.slice(0, 5)
   document.querySelector('#device-filter').value = station
   filterDevices(station)
-  document.querySelector('#devices').scrollIntoView({ behavior: 'smooth' })
+  const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+  document.querySelector('#devices').scrollIntoView({ behavior })
 })
 
 const deviceFilter = document.querySelector('#device-filter')

@@ -2,7 +2,7 @@
 
 ## Buttons
 
-- Use deep cyan, white text, hard edges, and a downward soft shadow for the primary button.
+- All blue-background buttons use white text, including primary actions and selected button states. Use deep blue `#006b8c` for these fills. Keep hard edges and restrained shadows.
 - Use a light or charcoal fill, a visible border, and the same height as the primary button for secondary actions.
 - Use red only for destructive or irreversible actions.
 - Reduce saturation and contrast for disabled buttons while keeping labels readable.
@@ -11,7 +11,7 @@
 
 ## Navigation
 
-- Mark the current item with a deep-cyan edge or solid block.
+- Mark the current item with a signal-blue edge; use deep blue for selected text on light surfaces.
 - Reinforce selection with position, iconography, or weight instead of color alone.
 - Allow Noto Serif SC 700 in a brand-led wide sidebar. Use Noto Sans SC 400 or 700 for ordinary product navigation.
 - Convert navigation to a fixed bottom bar on mobile without covering the end of the page.
@@ -26,10 +26,10 @@
 
 ## Data Cards
 
-- Pair large Times New Roman 700 values with smaller units and labels. Do not use Noto Sans SC 900 for metrics.
+- Pair large Bender 400 or 700 values with smaller units and labels. Do not use Noto Sans SC 900 for metrics.
 - Group information with borders, spacing, and tonal contrast instead of rounded-card stacks.
 - Use semantic colors only for success, warning, or error information.
-- Keep chart lines low contrast and reserve deep cyan for key data points.
+- Keep chart lines low contrast and use signal blue for key data points on dark plots and deep blue on light plots.
 
 ## Panels and Dialogs
 

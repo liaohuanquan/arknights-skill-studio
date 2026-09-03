@@ -9,7 +9,8 @@
   --ink: #242627;
   --panel-dark: #303233;
   --muted: #777b7d;
-  --primary-cyan: #0088ad;
+  --primary-cyan: #006b8c;
+  --signal-blue: #22bbff;
   --success: #45c685;
   --warning: #ffd200;
   --danger: #d74a40;
@@ -19,7 +20,8 @@
 ```
 
 - Cover most of the interface with black, charcoal, gray, and cool white.
-- Use deep cyan only for primary actions, selected states, focus, and critical readings. Use white text on cyan fills.
+- Use signal blue `#22bbff` for selected markers, progress, and critical readings on dark surfaces.
+- All blue-background buttons must use white text on deep blue `#006b8c`. Use the same deeper blue for text on paper. Preserve the target product's high-contrast keyboard focus ring. Keep blue markers paired with a label, shape, or state change.
 - Use yellow for limited-time content, rewards, and high-priority notices. Use orange for unread, new, or updated markers.
 - Allow sparse yellow rules, nodes, and diagonal connections in a brand hero. Do not make yellow the default decoration for ordinary components.
 - Reserve red for danger, failure, and irreversible actions. Do not use semantic colors as arbitrary decoration.
@@ -31,6 +33,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&family=Noto+Serif+SC:wght@400;700;900&display=swap");
 
 @font-face {
+  font-family: "Interface Numeric";
+  src: url("./assets/Bender-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0025, U+002B-003A, U+00B0, U+00D7, U+2032-2033, U+2212;
+}
+
+@font-face {
   font-family: "Interface Latin";
   src: local("Times New Roman"), local("TimesNewRomanPSMT");
   font-weight: 400;
@@ -38,9 +48,10 @@
 }
 
 :root {
-  --font-serif: "Interface Latin", "Noto Serif SC", serif;
-  --font-sans: "Interface Latin", "Noto Sans SC", Roboto, Arial, sans-serif;
-  --font-latin: "Interface Latin", "Times New Roman", Times, serif;
+  --font-serif: "Interface Numeric", "Interface Latin", "Noto Serif SC", serif;
+  --font-sans: "Interface Numeric", "Interface Latin", "Noto Sans SC", Roboto, Arial, sans-serif;
+  --font-latin: "Interface Numeric", "Interface Latin", "Times New Roman", Times, serif;
+  --font-numeric: "Interface Numeric", "Interface Latin", "Noto Sans SC", sans-serif;
   --font-code: "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, monospace;
 }
 ```
@@ -49,10 +60,11 @@
 | --- | --- | --- |
 | Chinese brand, page, section, and component titles | Noto Serif SC | 700 or 900 |
 | Chinese navigation, buttons, body copy, and supporting text | Noto Sans SC | 400 or 700 |
-| Latin text, numbers, dates, indices, and interface identifiers | Times New Roman | 400 or 700 |
+| Numerals, dates, counters, ratios, and numeric parts of identifiers | Bender | 400 or 700 |
+| Latin words and narrative labels | Times New Roman | 400 or 700 |
 | Code blocks, paths, and configuration fragments | SF Mono-first monospace stack | 400 or 700 |
 
-Use 900 only for important serif page, section, and component titles. Prefer 700 for ordinary component names. Never use Noto Sans SC 900: cap control labels at 700 and prefer 400 for body and supporting text. Let Times New Roman claim only Latin characters and numbers through `unicode-range`; Chinese text must continue to fall back to the selected serif or sans-serif family.
+Use 900 only for important serif page, section, and component titles. Prefer 700 for ordinary component names. Never use Noto Sans SC 900: cap control labels at 700 and prefer 400 for body and supporting text. Place the numeric face before the Latin face and scope it with `unicode-range`; Chinese text must fall back to the selected serif or sans-serif family. Declare separate 400 and 700 faces with their matching files; the bundled `src/terminal.css` contains both numeric declarations. Keep code blocks outside this numeric substitution.
 
 ## Geometry
 
@@ -72,7 +84,8 @@ Clipped-corner example:
 
 ## Background and Decoration
 
-- Use low-contrast scan lines, grain, diagonal connections, or local blur to create a device-interface atmosphere. Do not use a full-page grid.
+- Use neutral geometric silhouettes and faint grain or diagonal texture behind the content. Keep backgrounds subordinate to solid or nearly opaque content surfaces. Do not use a full-page grid.
+- Sparse dust can move once on entry and settle within 5 seconds. Keep this layer non-interactive and behind the application; use the original SVG assets from the templates.
 - Keep texture opacity low enough to preserve text contrast.
 - Avoid extensive glowing outlines and do not treat cyberpunk neon as the default direction.
 - Keep foreground text sharp; never blur it with the background.
@@ -89,5 +102,6 @@ Clipped-corner example:
 ## Motion
 
 - Do not provide button Hover styles. Pointer movement must not change position, shadow, color, or background.
-- Express interaction through selected, pressed, keyboard-focus, and disabled states. Avoid continuous animation.
-- Respect `prefers-reduced-motion`. Avoid persistent flashing and meaningless scanning effects.
+- Express interaction through selected, pressed, keyboard-focus, and disabled states. Use 160ms state transitions and 320ms content entry with opacity and at most 8px displacement. Progress entry may take up to 640ms.
+- Keep decorative animation finite. Show real numbers immediately and do not replay entry animation during data refreshes.
+- For `prefers-reduced-motion: reduce`, render final states immediately and disable animations, transitions, and smooth scrolling, including pseudo-elements. Avoid persistent flashing and meaningless scanning effects.
