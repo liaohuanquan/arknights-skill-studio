@@ -110,10 +110,8 @@ function mountParticles(reducedMotion) {
   let width = 0
   let height = 0
   let frame = 0
-  let previousTime = 0
 
   function drawParticles() {
-    context.clearRect(0, 0, width, height)
     context.fillStyle = '#fff'
     context.shadowColor = '#fff'
     for (const particle of particles) {
@@ -143,37 +141,27 @@ function mountParticles(reducedMotion) {
   }
 
   function resizeParticles() {
-    const oldWidth = width || innerWidth
-    const oldHeight = height || innerHeight
     width = innerWidth
     height = innerHeight
     canvas.width = width
     canvas.height = height
-    for (const particle of particles) {
-      particle.x *= width / oldWidth
-      particle.y *= height / oldHeight
-    }
-    const count = Math.floor((width + height) / 38)
-    particles.length = Math.min(particles.length, count)
-    while (particles.length < count) {
-      particles.push(createParticle())
+    if (!particles.length) {
+      const count = Math.floor((width + height) / 38)
+      while (particles.length < count) particles.push(createParticle())
     }
     drawParticles()
   }
 
-  function animateParticles(time) {
+  function animateParticles() {
     frame = requestAnimationFrame(animateParticles)
-    if (!previousTime) previousTime = time
-    const elapsed = time - previousTime
-    previousTime = time
-    const frameScale = Math.min(elapsed, 100) / (1000 / 60)
     for (const particle of particles) {
+      context.clearRect(particle.x - 6, particle.y - 6, 12, 12)
       if (particle.x < -5 || particle.y < -5) {
         particle.x = width
         particle.y = Math.floor(Math.random() * height)
       } else {
-        particle.x -= particle.velocityX * frameScale
-        particle.y -= particle.velocityY * frameScale
+        particle.x -= particle.velocityX
+        particle.y -= particle.velocityY
       }
     }
     drawParticles()
@@ -182,7 +170,6 @@ function mountParticles(reducedMotion) {
   function syncMotion() {
     cancelAnimationFrame(frame)
     frame = 0
-    previousTime = 0
     if (!document.hidden && !reducedMotion.matches) frame = requestAnimationFrame(animateParticles)
   }
 

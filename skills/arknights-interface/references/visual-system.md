@@ -89,7 +89,7 @@ Clipped-corner example:
 ## Background and Decoration
 
 - Use neutral geometric silhouettes and faint grain or diagonal texture behind the content. Keep backgrounds subordinate to solid or nearly opaque content surfaces. Do not use a full-page grid.
-- For terminal atmosphere, continuously drift sparse white particles behind the application on a non-interactive canvas. Use the shared `terminal-effects.js` implementation: calculate the count with `Math.floor((width + height) / 38)`; move particles left by `1–2px` and upward by `0.01–1.01px` per 60Hz-equivalent frame; randomize the horizontal radius between `0.5–2px`, scale the vertical radius by `0.3–1.3`, and use a `0–3px` white halo with a `-1–1px` offset. Draw at the display refresh rate, preserve time-based speed across refresh rates, and pause in hidden tabs.
+- For terminal atmosphere, continuously drift sparse white particles behind the application on a non-interactive canvas. Use the shared `terminal-effects.js` implementation: calculate the initial count with `Math.floor((width + height) / 38)`; move particles left by `1–2px` and upward by `0.01–1.01px` on every animation frame; randomize the horizontal radius between `0.5–2px`, scale the vertical radius by `0.3–1.3`, and use a `0–3px` white halo with a `-1–1px` offset. Clear each particle's previous `12px` square before moving it, reset out-of-bounds particles at a random height on the right edge, and pause in hidden tabs.
 - Keep texture opacity low enough to preserve text contrast.
 - Avoid extensive glowing outlines and do not treat cyberpunk neon as the default direction.
 - Keep foreground text sharp; never blur it with the background.
