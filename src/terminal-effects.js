@@ -117,11 +117,28 @@ function mountParticles(reducedMotion) {
     context.fillStyle = '#fff'
     context.shadowColor = '#fff'
     for (const particle of particles) {
-      context.globalAlpha = particle.opacity
-      context.shadowBlur = particle.radius * 2
+      context.shadowBlur = particle.shadowBlur
+      context.shadowOffsetX = particle.shadowOffsetX
+      context.shadowOffsetY = particle.shadowOffsetY
       context.beginPath()
-      context.ellipse(particle.x, particle.y, particle.radius, particle.radius * 0.8, -0.5, 0, Math.PI * 2)
+      context.ellipse(particle.x, particle.y, particle.radiusX, particle.radiusY, particle.rotation, 0, Math.PI * 2)
       context.fill()
+    }
+  }
+
+  function createParticle() {
+    const radiusX = Math.random() * 1.5 + 0.5
+    return {
+      x: Math.floor(Math.random() * width),
+      y: Math.floor(Math.random() * height),
+      velocityX: Math.random() + 1,
+      velocityY: Math.random() + 0.01,
+      radiusX,
+      radiusY: radiusX * (Math.random() + 0.3),
+      rotation: Math.PI * Math.floor(Math.random() * 2),
+      shadowBlur: Math.random() * 3,
+      shadowOffsetX: Math.random() * 2 - 1,
+      shadowOffsetY: Math.random() * 2 - 1,
     }
   }
 
@@ -130,25 +147,16 @@ function mountParticles(reducedMotion) {
     const oldHeight = height || innerHeight
     width = innerWidth
     height = innerHeight
-    const scale = Math.min(devicePixelRatio || 1, 1.5)
-    canvas.width = Math.round(width * scale)
-    canvas.height = Math.round(height * scale)
-    context.setTransform(scale, 0, 0, scale, 0, 0)
+    canvas.width = width
+    canvas.height = height
     for (const particle of particles) {
       particle.x *= width / oldWidth
       particle.y *= height / oldHeight
     }
-    const count = Math.min(70, Math.max(18, Math.round((width + height) / 38)))
+    const count = Math.floor((width + height) / 38)
     particles.length = Math.min(particles.length, count)
     while (particles.length < count) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        speedX: 12 + Math.random() * 24,
-        speedY: 4 + Math.random() * 12,
-        radius: 0.6 + Math.random() * 1.1,
-        opacity: 0.3 + Math.random() * 0.45,
-      })
+      particles.push(createParticle())
     }
     drawParticles()
   }
@@ -157,14 +165,16 @@ function mountParticles(reducedMotion) {
     frame = requestAnimationFrame(animateParticles)
     if (!previousTime) previousTime = time
     const elapsed = time - previousTime
-    if (elapsed < 1000 / 30) return
     previousTime = time
-    const seconds = Math.min(elapsed, 100) / 1000
+    const frameScale = Math.min(elapsed, 100) / (1000 / 60)
     for (const particle of particles) {
-      particle.x -= particle.speedX * seconds
-      particle.y -= particle.speedY * seconds
-      if (particle.x < -6) particle.x = width + 6
-      if (particle.y < -6) particle.y = height + 6
+      if (particle.x < -5 || particle.y < -5) {
+        particle.x = width
+        particle.y = Math.floor(Math.random() * height)
+      } else {
+        particle.x -= particle.velocityX * frameScale
+        particle.y -= particle.velocityY * frameScale
+      }
     }
     drawParticles()
   }
