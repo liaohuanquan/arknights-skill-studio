@@ -11,9 +11,9 @@ Create clear, usable, and restrained industrial terminal interfaces. Extract the
 
 1. Inspect the existing framework, component conventions, entry points, and responsive breakpoints.
 2. Define information hierarchy, primary actions, and status semantics before changing visual styles.
-3. Read [references/reference-index.md](references/reference-index.md), select the closest page type, and inspect both its screenshot and source template before editing.
-4. Read [references/component-studio-reference.md](references/component-studio-reference.md) for component catalogs and design-system pages, or [references/operations-dashboard-reference.md](references/operations-dashboard-reference.md) for dashboards and device consoles.
-5. Record the selected reference's shell proportions, type roles, surface hierarchy, semantic accents, density, and interaction states. Treat these as composition anchors, not page requirements.
+3. Read [references/reference-index.md](references/reference-index.md) and inspect the component-studio screenshot and source template before editing.
+4. Read [references/component-studio-reference.md](references/component-studio-reference.md) for component catalogs and design-system pages. For dashboards, device consoles, and other product pages, use the composition guidance in [references/examples.md](references/examples.md) and [references/component-patterns.md](references/component-patterns.md).
+5. Record the relevant shell proportions, type roles, surface hierarchy, semantic accents, density, and interaction states. Treat these as composition anchors, not page requirements.
 6. Read [references/visual-system.md](references/visual-system.md) for color, typography, geometry, and hierarchy rules. For sidebar navigation, numerals, signal blue, motion, or backgrounds, also read [references/terminal-theme-reference.md](references/terminal-theme-reference.md).
 7. Read [references/component-patterns.md](references/component-patterns.md) when building or modifying reusable components.
 8. Read [references/page-elements.md](references/page-elements.md) when selecting general interface elements. Select only what the product needs; never copy the entire reference page.

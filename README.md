@@ -5,8 +5,8 @@ A Codex Skill and reference studio for building restrained industrial web interf
 The repository combines:
 
 - An English Codex Skill with design rules and implementation workflow.
-- Verified visual references for component catalogs and operations dashboards.
-- Runnable Vite templates that provide composition anchors instead of fixed product layouts.
+- A verified visual reference for the component catalog.
+- A runnable Vite template that provides a composition anchor instead of a fixed product layout.
 - A component studio covering typography, controls, forms, tables, feedback, navigation, and responsive behavior.
 
 ## Preview
@@ -14,10 +14,6 @@ The repository combines:
 ### Component studio
 
 ![Component studio](skills/arknights-interface/references/images/component-studio.png)
-
-### Operations dashboard
-
-![Operations dashboard](skills/arknights-interface/references/images/operations-dashboard.png)
 
 ## Repository Structure
 
@@ -29,7 +25,6 @@ The repository combines:
 │   ├── references/
 │   └── assets/templates/
 ├── src/                    # Component studio source
-├── test/                   # Operations dashboard reference project
 ├── index.html
 └── package.json
 ```
@@ -62,14 +57,6 @@ Build verification:
 npm run build
 ```
 
-## Run the Operations Dashboard
-
-```bash
-cd test
-npm install
-npm run dev
-```
-
 ## Design Boundaries
 
 - Use black, charcoal, gray, and cool white as the base palette.
@@ -79,7 +66,7 @@ npm run dev
 - Do not add button Hover states, full-page grids, blue-purple gradients, or oversized rounded glass cards.
 - Use a transparent charcoal sidebar with centered text links, generous vertical spacing, a quiet navigation filter, and a blue current item. Avoid boxed navigation cards and large sidebar branding.
 - Use neutral geometric backgrounds, continuously drifting sparse particles, and a thin mouse-following ring with click ripples. Pause particles in hidden tabs; reduced-motion preferences freeze particles and disable the ring.
-- Treat the bundled templates as composition references. Preserve the target product's framework, business structure, content, and terminology.
+- Treat the bundled template as a composition reference. Preserve the target product's framework, business structure, content, and terminology.
 
 ## Intellectual Property Notice
 
