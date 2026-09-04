@@ -9,33 +9,37 @@ function mountCursor() {
   const ring = layer.firstElementChild
   const ripple = layer.lastElementChild
   let frame = 0
-  let previousTime = 0
+  let lastTime = 0
   let x = 0
   let y = 0
   let targetX = 0
   let targetY = 0
   let visible = false
-  let pulse
+  let moving = false
+  let rippleActive = false
+  let rippleTimer
 
   function positionRing() {
     ring.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`
   }
 
   function followPointer(time) {
-    frame = 0
-    const elapsed = previousTime ? Math.min(time - previousTime, 64) : 16
-    previousTime = time
-    const ease = 1 - Math.exp(-elapsed / 45)
-    x += (targetX - x) * ease
-    y += (targetY - y) * ease
-    if (Math.hypot(targetX - x, targetY - y) < 0.1) {
+    const deltaX = targetX - x
+    const deltaY = targetY - y
+    const ease = Math.min(0.025 * (time - lastTime), 1)
+    x += deltaX * ease
+    y += deltaY * ease
+    lastTime = time
+    positionRing()
+    if (Math.abs(deltaX) > 0.1 || Math.abs(deltaY) > 0.1) {
+      frame = requestAnimationFrame(followPointer)
+    } else {
       x = targetX
       y = targetY
-      previousTime = 0
-    } else {
-      frame = requestAnimationFrame(followPointer)
+      moving = false
+      frame = 0
+      positionRing()
     }
-    positionRing()
   }
 
   function hideCursor() {
@@ -43,8 +47,10 @@ function mountCursor() {
     layer.classList.remove('is-visible', 'is-interactive')
     cancelAnimationFrame(frame)
     frame = 0
-    previousTime = 0
-    pulse?.cancel()
+    moving = false
+    clearTimeout(rippleTimer)
+    rippleActive = false
+    ripple.classList.remove('is-active')
   }
 
   function updateTarget(event) {
@@ -53,7 +59,6 @@ function mountCursor() {
   }
 
   function moveCursor(event) {
-    if (event.pointerType !== 'mouse') return hideCursor()
     targetX = event.clientX
     targetY = event.clientY
     if (!visible) {
@@ -64,24 +69,28 @@ function mountCursor() {
       layer.classList.add('is-visible')
     }
     updateTarget(event)
-    if (!frame) frame = requestAnimationFrame(followPointer)
+    if (!moving) {
+      moving = true
+      frame = requestAnimationFrame(followPointer)
+    }
   }
 
   function showRipple(event) {
-    if (event.pointerType !== 'mouse' || event.button !== 0 || !visible) return
+    if (!visible || rippleActive) return
+    rippleActive = true
     ripple.style.left = `${event.clientX}px`
     ripple.style.top = `${event.clientY}px`
-    pulse?.cancel()
-    pulse = ripple.animate([
-      { transform: 'translate(-50%, -50%) scale(.2)', opacity: 0.8 },
-      { transform: 'translate(-50%, -50%) scale(1)', opacity: 0 },
-    ], { duration: 500, easing: 'cubic-bezier(.22, .61, .21, 1)' })
+    ripple.classList.add('is-active')
+    rippleTimer = setTimeout(() => {
+      rippleActive = false
+      ripple.classList.remove('is-active')
+    }, 500)
   }
 
-  window.addEventListener('pointermove', moveCursor, options)
-  window.addEventListener('pointerover', updateTarget, options)
-  window.addEventListener('pointerdown', showRipple, options)
-  window.addEventListener('pointerout', event => {
+  window.addEventListener('mousemove', moveCursor, options)
+  window.addEventListener('mouseover', updateTarget, options)
+  window.addEventListener('click', showRipple, options)
+  window.addEventListener('mouseout', event => {
     if (!event.relatedTarget) hideCursor()
   }, options)
   window.addEventListener('blur', hideCursor, options)
