@@ -97,7 +97,7 @@ Clipped-corner example:
 ## Page Composition
 
 - Brand hero: use a cool-white field, a prominent serif narrative title, sparse yellow diagonal connections, and a dark utility region.
-- Studio or component library: use a compact transparent charcoal sidebar (184px desktop, 168px on narrower desktop screens; share one width token with content offsets), fixed top bar, and independently scrolling content area. Center unboxed text links with generous vertical spacing. Use a quiet navigation filter and one thin outer divider; omit large brand blocks, item borders, desktop icons, and selected fills.
+- Studio or component library: use a narrow transparent charcoal sidebar (152px desktop, 144px on narrower desktop screens; share one width token with content offsets), fixed top bar, and independently scrolling content area. Center unboxed text links in a compact vertical group. Use a quiet navigation filter and one thin outer divider; omit large brand blocks, item borders, desktop icons, and selected fills.
 - Sidebar typography: use a dedicated `--font-sidebar` stack with Bender for Latin and system sans-serif (PingFang SC, Microsoft YaHei, sans-serif) for Chinese. Labels are 16px, and the navigation filter is 15px. All labels stay at weight 400; ordinary links are white and the current item is signal blue with `aria-current`. Keep the numeric-only Bender face unchanged elsewhere.
 - Component catalog: use horizontal label-instance rows on desktop and stack the label above the instance on narrow screens.
 - Data review page: place navigation and filters on the left, primary content in the center, and metadata or validation actions on the right.

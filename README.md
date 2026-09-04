@@ -64,7 +64,7 @@ npm run build
 - Use yellow for warnings and sparse priority accents.
 - Use Noto Serif SC for major Chinese titles, Noto Sans SC for controls and body copy, Bender for numerals and dates, and Times New Roman for Latin words outside navigation. Sidebar labels use Bender for Latin and system sans-serif for Chinese at 16px and weight 400, including the current item.
 - Do not add button Hover states, full-page grids, blue-purple gradients, or oversized rounded glass cards.
-- Use a transparent charcoal sidebar with centered text links, generous vertical spacing, a quiet navigation filter, and a blue current item. Avoid boxed navigation cards and large sidebar branding.
+- Use a narrow transparent charcoal sidebar with centered text links in a compact vertical group, a quiet navigation filter, and a blue current item. Avoid boxed navigation cards and large sidebar branding.
 - Use neutral geometric backgrounds, continuously drifting sparse particles, and a thin mouse-following ring with click ripples. Pause particles in hidden tabs; reduced-motion preferences freeze particles and disable the ring.
 - When a PRTS-style terminal voice is requested, use concise system reports and a restrained vocabulary of protocols, archives, commands, nodes, links, transfers, and status. Keep button labels action-first and preserve the product's real entities and tasks.
 - Treat the bundled template as a composition reference. Preserve the target product's framework, business structure, content, and terminology.
