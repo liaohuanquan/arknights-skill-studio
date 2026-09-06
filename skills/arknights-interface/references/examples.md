@@ -1,5 +1,7 @@
 # Usage Examples
 
+Use the [complete Chinese PRTS prompt](../assets/templates/component-studio/src/visual-prompt.md) when reproducing the current visual baseline. The shorter requests below invoke the skill for related product work.
+
 ## Example Requests
 
 ```text
@@ -47,7 +49,7 @@ Use this voice only when the target product or the user explicitly asks for an A
 - Prefer a restrained working vocabulary such as 协议、档案、指令、节点、链路、回传、校验、调度、归档, and 状态. Use a term only when it describes the actual product behavior.
 - Name primary sections as stable system areas: "协议总览", "组件档案", or "行动记录". Use English metadata as a namespace or identifier, for example `PRTS / COMPONENT ARCHIVE`.
 - Start buttons with a concrete verb and retain the object: "录入协议", "调阅源文件", "执行校准", or "终止指令".
-- Distinguish neutral reports, warnings, and high-risk commands through explicit copy before applying color.
+- Distinguish neutral reports, warnings, and high-risk commands through explicit copy before applying color. State “已同步”, “已导出”, or “已归档” only after the corresponding behavior succeeds; identify illustrative status data as examples.
 - Preserve the target product's entities and tasks. Do not insert faction names, story details, dialogue, or copied game text merely for atmosphere.
 
 ## Avoid

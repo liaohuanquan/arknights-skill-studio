@@ -6,6 +6,8 @@ Inspect the composition reference before implementing or substantially restyling
 | --- | --- | --- | --- |
 | Component catalog or design studio | `images/component-studio.png` | `../assets/templates/component-studio/` | Centered text navigation rail, fixed utility bar, consecutive component rows, type hierarchy, control-state presentation |
 
+For a self-contained Chinese generation prompt matching this studio, use [PRTS Visual Prompt](../assets/templates/component-studio/src/visual-prompt.md).
+
 For sidebar navigation, numerals, blue accents, animation, and background depth, also use [Terminal Theme Reference](terminal-theme-reference.md).
 
 ## Selection Rules

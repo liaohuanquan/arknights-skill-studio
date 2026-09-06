@@ -5,7 +5,7 @@ Select elements from this catalog when building design-system pages, device cons
 ## Application Shell
 
 - Use a fixed top bar for the page title, global status, preview controls, and global actions.
-- Use a transparent charcoal desktop sidebar with a quiet navigation filter, centered unboxed text links, generous vertical spacing, and a blue current item. Keep product identity in the top bar; omit sidebar brand blocks, boxed menu items, and desktop navigation icons.
+- Use a transparent charcoal desktop sidebar with a quiet navigation filter, centered unboxed text links grouped in 64px rows with 8px gaps, and a blue current item. Use a shared 152px width (144px at 721–1050px); do not spread menu items over the full screen height. Keep product identity in the top bar; omit sidebar brand blocks, boxed menu items, and desktop navigation icons.
 - Keep the workspace independently scrollable. When hiding scrollbars, support Firefox and WebKit while preserving wheel and touch scrolling.
 - Convert the sidebar to a fixed bottom bar on mobile. Hide secondary brand metadata and reserve bottom space for the bar.
 - Layer cool white, charcoal, and low-contrast blurred backgrounds. Do not use a full-page grid.
@@ -19,6 +19,7 @@ Select elements from this catalog when building design-system pages, device cons
 | Type specimen | Chinese serif/sans-serif, Bender numerals, and Latin word samples | Usage, weight, and realistic Chinese and Latin copy |
 | Rules checklist | Check state, rule name, explanation, index | Never communicate completion with color alone |
 | Live preview | Context label, status, key metric, simple chart, actions | Use realistic product copy instead of decorative Latin text only |
+| Protocol prompt | Maintained Markdown, readable preview, copy, and download | Present the same complete text in all three paths; do not label an excerpt as the full `SKILL.md` |
 
 ## General Components
 
@@ -38,12 +39,14 @@ Select elements from this catalog when building design-system pages, device cons
 | 12 | Loading and empty states | Skeleton, processing label, empty-state mark, and next-step guidance |
 | 13 | Avatars and entity lists | Original initials avatar, name, role, and availability state |
 | 14 | Range and rating | Persistent label, current value, native range input, and graphical quality level |
-| 15 | Date and time | Date input, time input, date strip, previous and next controls, and selected state |
-| 16 | Uploads and attachments | File picker, format limits, attachment summary, validation state, and progress |
-| 17 | Tree controls | Parent and child nodes, checkbox state, counts, and current selection summary |
-| 18 | Transfer lists | Available list, selected list, add and remove actions, and capacity guidance |
-| 19 | Description lists and statistics | Term-value pairs, key-metric strip, large numbers, and small units |
-| 20 | Timelines and results | Time, stage, status copy, pending state, result summary, and primary follow-up action |
+| 15 | Commands and queues | Execution units, queue order, current strategy, and an explicit action with feedback |
+| 16 | Date and time | Date input, time input, date strip, previous and next controls, and selected state |
+| 17 | Uploads and attachments | File picker, format limits, attachment summary, validation state, and progress |
+| 18 | Tree controls | Parent and child nodes, checkbox state, counts, and current selection summary |
+| 19 | Transfer lists | Available list, selected list, add and remove actions, and capacity guidance |
+| 20 | Description lists and statistics | Term-value pairs, key-metric strip, large numbers, and small units |
+| 21 | Timelines and results | Time, stage, status copy, pending state, result summary, and primary follow-up action |
+| 22 | Tasks and rewards | Task categories, progress, claimable state, completed records, and a reward track |
 
 ## Component Documentation Layout
 

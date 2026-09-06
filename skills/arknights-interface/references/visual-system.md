@@ -97,7 +97,7 @@ Clipped-corner example:
 ## Page Composition
 
 - Brand hero: use a cool-white field, a prominent serif narrative title, sparse yellow diagonal connections, and a dark utility region.
-- Studio or component library: use a narrow transparent charcoal sidebar (152px desktop, 144px on narrower desktop screens; share one width token with content offsets), fixed top bar, and independently scrolling content area. Center unboxed text links in a compact vertical group. Use a quiet navigation filter and one thin outer divider; omit large brand blocks, item borders, desktop icons, and selected fills.
+- Studio or component library: use a narrow transparent charcoal sidebar (152px desktop, 144px on narrower desktop screens; share one width token with content offsets), fixed top bar, and independently scrolling content area. Center unboxed text links in 64px rows with 8px gaps, grouped below a 48px filter with an 18px gap. Do not distribute rows across the full viewport height. At 720px and below, use a 66px bottom bar and a 76px header. Use a quiet navigation filter and one thin outer divider; omit large brand blocks, item borders, desktop icons, and selected fills.
 - Sidebar typography: use a dedicated `--font-sidebar` stack with Bender for Latin and system sans-serif (PingFang SC, Microsoft YaHei, sans-serif) for Chinese. Labels are 16px, and the navigation filter is 15px. All labels stay at weight 400; ordinary links are white and the current item is signal blue with `aria-current`. Keep the numeric-only Bender face unchanged elsewhere.
 - Component catalog: use horizontal label-instance rows on desktop and stack the label above the instance on narrow screens.
 - Data review page: place navigation and filters on the left, primary content in the center, and metadata or validation actions on the right.
@@ -106,8 +106,8 @@ Clipped-corner example:
 
 ## Motion
 
-- Do not provide button Hover styles. Pointer movement must not change position, shadow, color, or background.
+- Do not provide button Hover styles. Pointer movement must not change the button's position, shadow, color, or background; the cursor ring may still change over an interactive target.
 - Express interaction through selected, pressed, keyboard-focus, and disabled states. Use 160ms state transitions and 320ms content entry with opacity and at most 8px displacement. Progress entry may take up to 640ms.
 - Keep content-entry and click-ripple animations finite. Background particles may drift continuously; show real numbers immediately and do not replay entry animation during data refreshes.
-- Replace the system arrow with the compact 6px theme pointer. On a fine mouse pointer above 768px, add a 36px `#ccc` ring with the reference follow interpolation `min(0.025 × elapsed milliseconds, 1)`, shrink it to 24px with a 53% white fill over controls, and show one 80px, 4px-border click ripple for 500ms. Keep these overlays non-interactive and out of the accessibility tree.
+- Replace the system arrow with the compact 6px theme pointer. On a fine mouse pointer above 768px, add a 36px `#ccc` ring with the reference follow interpolation `min(0.025 × elapsed milliseconds, 1)`, shrink it to 24px with a 53% white fill over controls, and show one 80px, 4px-border click ripple for 500ms. Use content-box sizing, a 1px ring border, a 300ms ring transition, and no difference blend mode; start the ripple on click at scale(0), fade to scale(1) with `cubic-bezier(.22,.61,.21,1)`, and ignore repeated triggers while it runs. Keep these overlays non-interactive and out of the accessibility tree.
 - For `prefers-reduced-motion: reduce`, freeze particles, remove the cursor ring and ripple, render final states immediately, and disable animations, transitions, and smooth scrolling, including pseudo-elements. Avoid persistent flashing and meaningless scanning effects.

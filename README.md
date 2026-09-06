@@ -41,8 +41,12 @@ cp -R skills/arknights-interface ~/.codex/skills/arknights-interface
 Invoke it with:
 
 ```text
-Use $arknights-interface to inspect the closest bundled visual reference and refine the current page while preserving its business structure and behavior.
+使用 $arknights-interface 编写或修改 UI、组件前，先查阅 assets/templates/component-studio/ 中最接近的样例源码、样式和可用预览，再在现有组件体系中实现，保持样例的视觉与交互规则，并保留产品业务行为。
 ```
+
+## Current Page Prompt
+
+The [Chinese PRTS visual prompt](src/visual-prompt.md) captures the current 152/144px sidebar, 64px navigation rows with 8px gaps, fonts, blue controls, particles, cursor feedback, and terminal copy. The studio reads this Markdown for its prompt preview, clipboard copy, and download. Keep its [standalone template copy](skills/arknights-interface/assets/templates/component-studio/src/visual-prompt.md) synchronized when editing it.
 
 ## Run the Component Studio
 

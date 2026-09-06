@@ -1,4 +1,5 @@
 import './style.css'
+import visualPrompt from './visual-prompt.md?raw'
 import { mountTerminalEffects } from './terminal-effects.js'
 import { mountSidebarSearch } from './terminal-navigation.js'
 
@@ -34,13 +35,13 @@ app.innerHTML = `
     <main>
       <header class="topbar">
         <div><span class="eyebrow">PRTS / VISUAL PROTOCOL / 01</span><h1>视觉协议终端</h1></div>
-        <div class="top-actions"><span class="status-dot">协议已同步</span><button class="button ghost" id="previewBtn">终端预览</button><button class="button primary" id="exportBtn">${icon('export')}导出协议</button></div>
+        <div class="top-actions"><span class="status-dot">协议已同步</span><button class="button ghost" id="previewBtn">终端预览</button><button class="button primary" id="exportBtn">${icon('export')}导出提示词</button></div>
       </header>
 
       <div class="workspace">
         <section class="hero panel-cut terminal-enter">
           <div class="hero-network" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><b></b><b></b><b></b></div>
-          <div class="hero-copy"><span class="kicker">PRTS / VISUAL PROTOCOL / 01</span><h2>PRTS<br><em>视觉协议。</em></h2><p>界面规范正在写入 PRTS 档案库。字体、色彩、状态与交互规则均已完成编号，可供各级终端检索与调用。</p><div class="hero-actions"><button class="button primary" data-jump="rules">录入协议 ${icon('sliders')}</button><button class="text-button" data-jump="source">调阅协议源文件 →</button></div></div>
+          <div class="hero-copy"><span class="kicker">PRTS / VISUAL PROTOCOL / 01</span><h2>PRTS<br><em>视觉协议。</em></h2><p>界面规范正在写入 PRTS 档案库。字体、色彩、状态与交互规则均已完成编号，可供各级终端检索与调用。</p><div class="hero-actions"><button class="button primary" data-jump="rules">录入协议 ${icon('sliders')}</button><button class="text-button" data-jump="source">调阅协议提示词 →</button></div></div>
           <div class="telemetry" aria-label="PRTS 协议完整度"><div class="rings"><span>98<small>%</small></span></div><p>协议完整度</p><div class="meter"><i class="terminal-progress"></i></div><ul><li><span>视觉参数</span><b>20/20</b></li><li><span>组件档案</span><b>22/22</b></li><li><span>调用记录</span><b>19/19</b></li></ul></div>
           <span class="hero-index">01</span>
         </section>
@@ -299,9 +300,9 @@ app.innerHTML = `
         </section>
 
         <section class="source-panel panel-cut" data-section="source">
-          <div><span class="eyebrow">PRTS / GENERATED PROTOCOL</span><h3>SKILL.md</h3><p>当前视觉协议已编译为可调用的 Skill 入口文件。</p></div>
-          <pre><code><span>---</span>\nname: arknights-interface\ndescription: 创建具备 PRTS 终端语气的宋黑高对比工业界面。\n<span>---</span>\n\n# PRTS 视觉协议\n\n## 字体层级\n- 宋体：品牌、叙事与页面主标题。\n- 黑体：操作标题、按钮与正文。\n- Bender：数字、日期、编号、关键数据与侧栏英文。\n- 新罗马：英文叙事与标签。\n\n## 终端语言\n- 用短句陈述状态、结果与下一步指令。\n- 优先使用协议、档案、指令、节点、链路、回传与归档等终端词汇。\n- 按钮以动作开头，并明确执行对象。\n\n## 状态规则\n- 亮青蓝表示选中、进度与重点数据；蓝底按钮统一使用白字。\n- 黄色表示活动与奖励。\n- 橙色表示未读更新，红色只表示危险。\n- 使用硬边、切角和向下软阴影；禁止网格、Hover 与蓝紫渐变。\n- 内容淡入 320ms，背景粒子持续漂浮；鼠标圆环跟随与点击扩散；支持减少动态效果。</code></pre>
-          <button class="copy-button" id="copyBtn">${icon('copy')}复制</button>
+          <div><span class="eyebrow">PRTS / INTERFACE PROMPT</span><h3>界面生成提示词</h3><p>依据当前页面整理的完整视觉协议，可复制或下载后用于界面生成。</p></div>
+          <pre tabindex="0" aria-label="界面生成提示词"><code id="visualPrompt"></code></pre>
+          <button class="copy-button" id="copyBtn">${icon('copy')}复制提示词</button>
         </section>
       </div>
     </main>
@@ -315,6 +316,8 @@ app.innerHTML = `
     </div>
   </div>
 `
+
+document.querySelector('#visualPrompt').textContent = visualPrompt
 
 const toast = document.querySelector('.toast')
 
@@ -350,7 +353,17 @@ document.querySelector('#previewBtn').addEventListener('click', () => {
   showToast(document.body.classList.contains('preview-mode') ? 'PRTS 终端预览已开启' : '协议编辑模式已恢复')
 })
 
-document.querySelector('#exportBtn').addEventListener('click', () => showToast('PRTS 视觉协议已生成'))
+document.querySelector('#exportBtn').addEventListener('click', () => {
+  const url = URL.createObjectURL(new Blob([visualPrompt], { type: 'text/markdown;charset=utf-8' }))
+  const link = document.createElement('a')
+  link.href = url
+  link.download = 'PRTS-visual-prompt.md'
+  document.body.append(link)
+  link.click()
+  link.remove()
+  setTimeout(() => URL.revokeObjectURL(url), 1000)
+  showToast('协议提示词已提交下载')
+})
 
 document.querySelectorAll('[data-feedback]').forEach((button) => {
   button.addEventListener('click', () => showToast(button.dataset.feedback))
@@ -452,8 +465,12 @@ document.addEventListener('keydown', (event) => {
 })
 
 document.querySelector('#copyBtn').addEventListener('click', async () => {
-  await navigator.clipboard.writeText(document.querySelector('pre').innerText)
-  showToast('协议源文件已复制')
+  try {
+    await navigator.clipboard.writeText(visualPrompt)
+    showToast('协议提示词已复制')
+  } catch {
+    showToast('复制未完成，请选中提示词手动复制')
+  }
 })
 
 const disposeTerminalEffects = mountTerminalEffects()
