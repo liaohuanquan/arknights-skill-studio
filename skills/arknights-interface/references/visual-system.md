@@ -9,7 +9,10 @@
   --ink: #242627;
   --panel-dark: #303233;
   --muted: #777b7d;
-  --primary-cyan: #0088ad;
+  --signal-blue: #22bbff;
+  --primary-cyan: var(--signal-blue);
+  --cyan: var(--signal-blue);
+  --text-cyan: #006b8c;
   --success: #45c685;
   --warning: #ffd200;
   --danger: #d74a40;
@@ -19,7 +22,8 @@
 ```
 
 - Cover most of the interface with black, charcoal, gray, and cool white.
-- Use deep cyan only for primary actions, selected states, focus, and critical readings. Use white text on cyan fills.
+- Use signal blue `#22bbff` for selected controls and progress fills on both light and dark surfaces, and for critical readings on dark surfaces. Switches, checkboxes, radios, sliders, steps, selected options, and state markers share this token. Keep legacy control tokens such as `--cyan` aliased to `--signal-blue`, never to the deep text color.
+- All blue-background buttons must use white text on reference blue `#22bbff`. Keep deep blue `#006b8c` for text on paper; do not darken button fills when applying white labels. Preserve the target product's high-contrast keyboard focus ring. Keep blue markers paired with a label, shape, or state change.
 - Use yellow for limited-time content, rewards, and high-priority notices. Use orange for unread, new, or updated markers.
 - Allow sparse yellow rules, nodes, and diagonal connections in a brand hero. Do not make yellow the default decoration for ordinary components.
 - Reserve red for danger, failure, and irreversible actions. Do not use semantic colors as arbitrary decoration.
@@ -31,6 +35,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&family=Noto+Serif+SC:wght@400;700;900&display=swap");
 
 @font-face {
+  font-family: "Interface Numeric";
+  src: url("./assets/Bender-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0025, U+002B-003A, U+00B0, U+00D7, U+2032-2033, U+2212;
+}
+
+@font-face {
   font-family: "Interface Latin";
   src: local("Times New Roman"), local("TimesNewRomanPSMT");
   font-weight: 400;
@@ -38,9 +50,10 @@
 }
 
 :root {
-  --font-serif: "Interface Latin", "Noto Serif SC", serif;
-  --font-sans: "Interface Latin", "Noto Sans SC", Roboto, Arial, sans-serif;
-  --font-latin: "Interface Latin", "Times New Roman", Times, serif;
+  --font-serif: "Interface Numeric", "Interface Latin", "Noto Serif SC", serif;
+  --font-sans: "Interface Numeric", "Interface Latin", "Noto Sans SC", Roboto, Arial, sans-serif;
+  --font-latin: "Interface Numeric", "Interface Latin", "Times New Roman", Times, serif;
+  --font-numeric: "Interface Numeric", "Interface Latin", "Noto Sans SC", sans-serif;
   --font-code: "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, monospace;
 }
 ```
@@ -48,11 +61,14 @@
 | Content | Typeface | Weight |
 | --- | --- | --- |
 | Chinese brand, page, section, and component titles | Noto Serif SC | 700 or 900 |
-| Chinese navigation, buttons, body copy, and supporting text | Noto Sans SC | 400 or 700 |
-| Latin text, numbers, dates, indices, and interface identifiers | Times New Roman | 400 or 700 |
+| Chinese buttons, body copy, and supporting text | Noto Sans SC | 400 or 700 |
+| Numerals, dates, counters, ratios, and numeric parts of identifiers | Bender | 400 or 700 |
+| Sidebar Latin labels | Bender, 16px | 400, including the current item |
+| Sidebar Chinese labels | System sans-serif: PingFang SC, Microsoft YaHei, sans-serif; 16px | 400, including the current item |
+| Other Latin words and narrative labels | Times New Roman | 400 or 700 |
 | Code blocks, paths, and configuration fragments | SF Mono-first monospace stack | 400 or 700 |
 
-Use 900 only for important serif page, section, and component titles. Prefer 700 for ordinary component names. Never use Noto Sans SC 900: cap control labels at 700 and prefer 400 for body and supporting text. Let Times New Roman claim only Latin characters and numbers through `unicode-range`; Chinese text must continue to fall back to the selected serif or sans-serif family.
+Use 900 only for important serif page, section, and component titles. Prefer 700 for ordinary component names. Never use Noto Sans SC 900: cap control labels at 700 and prefer 400 for body and supporting text. Place the numeric face before the Latin face and scope it with `unicode-range`; Chinese text must fall back to the selected serif or sans-serif family. Declare separate 400 and 700 faces with their matching files; the bundled `src/terminal.css` contains both numeric declarations. Keep code blocks outside this numeric substitution.
 
 ## Geometry
 
@@ -72,7 +88,8 @@ Clipped-corner example:
 
 ## Background and Decoration
 
-- Use low-contrast scan lines, grain, diagonal connections, or local blur to create a device-interface atmosphere. Do not use a full-page grid.
+- Use neutral geometric silhouettes and faint grain or diagonal texture behind the content. Keep backgrounds subordinate to solid or nearly opaque content surfaces. Do not use a full-page grid.
+- For terminal atmosphere, continuously drift sparse white particles behind the application on a non-interactive canvas. Use the shared `terminal-effects.js` implementation: calculate the initial count with `Math.floor((width + height) / 38)`; move particles left by `1–2px` and upward by `0.01–1.01px` on every animation frame; randomize the horizontal radius between `0.5–2px`, scale the vertical radius by `0.3–1.3`, and use a `0–3px` white halo with a `-1–1px` offset. Clear each particle's previous `12px` square before moving it, reset out-of-bounds particles at a random height on the right edge, and pause in hidden tabs.
 - Keep texture opacity low enough to preserve text contrast.
 - Avoid extensive glowing outlines and do not treat cyberpunk neon as the default direction.
 - Keep foreground text sharp; never blur it with the background.
@@ -80,7 +97,8 @@ Clipped-corner example:
 ## Page Composition
 
 - Brand hero: use a cool-white field, a prominent serif narrative title, sparse yellow diagonal connections, and a dark utility region.
-- Studio or component library: use a wide desktop sidebar, fixed top bar, and independently scrolling content area. The sidebar may use serif type for brand identity while controls remain sans serif.
+- Studio or component library: use a narrow transparent charcoal sidebar (152px desktop, 144px on narrower desktop screens; share one width token with content offsets), fixed top bar, and independently scrolling content area. Center unboxed text links in 64px rows with 8px gaps, grouped below a 48px filter with an 18px gap. Do not distribute rows across the full viewport height. At 720px and below, use a 66px bottom bar and a 76px header. Use a quiet navigation filter and one thin outer divider; omit large brand blocks, item borders, desktop icons, and selected fills.
+- Sidebar typography: use a dedicated `--font-sidebar` stack with Bender for Latin and system sans-serif (PingFang SC, Microsoft YaHei, sans-serif) for Chinese. Labels are 16px, and the navigation filter is 15px. All labels stay at weight 400; ordinary links are white and the current item is signal blue with `aria-current`. Keep the numeric-only Bender face unchanged elsewhere.
 - Component catalog: use horizontal label-instance rows on desktop and stack the label above the instance on narrow screens.
 - Data review page: place navigation and filters on the left, primary content in the center, and metadata or validation actions on the right.
 - Device console: place device identity, connection state, and global actions at the top; show key metrics and warnings before detailed forms and logs.
@@ -88,6 +106,8 @@ Clipped-corner example:
 
 ## Motion
 
-- Do not provide button Hover styles. Pointer movement must not change position, shadow, color, or background.
-- Express interaction through selected, pressed, keyboard-focus, and disabled states. Avoid continuous animation.
-- Respect `prefers-reduced-motion`. Avoid persistent flashing and meaningless scanning effects.
+- Do not provide button Hover styles. Pointer movement must not change the button's position, shadow, color, or background; the cursor ring may still change over an interactive target.
+- Express interaction through selected, pressed, keyboard-focus, and disabled states. Use 160ms state transitions and 320ms content entry with opacity and at most 8px displacement. Progress entry may take up to 640ms.
+- Keep content-entry and click-ripple animations finite. Background particles may drift continuously; show real numbers immediately and do not replay entry animation during data refreshes.
+- Replace the system arrow with the compact 6px theme pointer. On a fine mouse pointer above 768px, add a 36px `#ccc` ring with the reference follow interpolation `min(0.025 × elapsed milliseconds, 1)`, shrink it to 24px with a 53% white fill over controls, and show one 80px, 4px-border click ripple for 500ms. Use content-box sizing, a 1px ring border, a 300ms ring transition, and no difference blend mode; start the ripple on click at scale(0), fade to scale(1) with `cubic-bezier(.22,.61,.21,1)`, and ignore repeated triggers while it runs. Keep these overlays non-interactive and out of the accessibility tree.
+- For `prefers-reduced-motion: reduce`, freeze particles, remove the cursor ring and ripple, render final states immediately, and disable animations, transitions, and smooth scrolling, including pseudo-elements. Avoid persistent flashing and meaningless scanning effects.

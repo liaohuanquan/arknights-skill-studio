@@ -1,4 +1,4 @@
 interface:
-  display_name: "Arknights Industrial Interface"
-  short_description: "Build industrial interfaces from verified visual references"
-  default_prompt: "Use $arknights-interface to inspect the closest bundled visual reference and refine the current page while preserving its business structure and behavior."
+  display_name: "PRTS Visual Protocol"
+  short_description: "Build PRTS interfaces from the verified compact studio"
+  default_prompt: "使用 $arknights-interface 编写或修改 UI、组件前，先查阅 assets/templates/component-studio/ 中最接近的实例源码、样式和可用预览，再沿用其紧凑侧栏、蓝底白字、字体、粒子、鼠标效果与 PRTS 文案，在目标项目已有组件体系中实现，并保留业务行为。"

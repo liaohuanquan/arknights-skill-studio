@@ -5,49 +5,52 @@ description: Design, implement, or refine web interfaces inspired by the industr
 
 # Arknights-Inspired Industrial Interface
 
-Create clear, usable, and restrained industrial terminal interfaces. Extract the visual language without copying game screens.
+Create clear, usable, and restrained industrial terminal interfaces using the verified PRTS studio as the visual baseline. Extract the visual language without copying game screens.
+
+For a ready-to-use Chinese page-generation prompt, read [PRTS Visual Prompt](assets/templates/component-studio/src/visual-prompt.md). It is also the text displayed, copied, and downloaded by the bundled studio; it is a prompt, not a replacement for this complete skill.
 
 ## Workflow
 
 1. Inspect the existing framework, component conventions, entry points, and responsive breakpoints.
 2. Define information hierarchy, primary actions, and status semantics before changing visual styles.
-3. Read [references/reference-index.md](references/reference-index.md), select the closest page type, and inspect both its screenshot and source template before editing.
-4. Read [references/component-studio-reference.md](references/component-studio-reference.md) for component catalogs and design-system pages, or [references/operations-dashboard-reference.md](references/operations-dashboard-reference.md) for dashboards and device consoles.
-5. Record the selected reference's shell proportions, type roles, surface hierarchy, semantic accents, density, and interaction states. Treat these as composition anchors, not page requirements.
-6. Read [references/visual-system.md](references/visual-system.md) for color, typography, geometry, and hierarchy rules.
+3. Before creating or changing any UI, including a single component, inspect the closest example in [the component-studio source](assets/templates/component-studio/src/main.js) and its selectors, shared tokens, and breakpoints in [the stylesheet](assets/templates/component-studio/src/style.css). These examples are the concrete implementation reference, not optional inspiration. Inspect the matching area in a running template or preview when available; use [references/reference-index.md](references/reference-index.md) to locate further visual references.
+4. Read [references/component-studio-reference.md](references/component-studio-reference.md) for component catalogs and design-system pages. For dashboards, device consoles, and other product pages, use the composition guidance in [references/examples.md](references/examples.md) and [references/component-patterns.md](references/component-patterns.md).
+5. Carry the relevant example's proportions, type roles, surfaces, colors, spacing, and interaction states into the target project's existing component system. When no exact example exists, extend the closest pattern and shared tokens. The template's native HTML/CSS does not require a framework migration or copying its full page composition.
+6. Read [references/visual-system.md](references/visual-system.md) for color, typography, geometry, and hierarchy rules. For sidebar navigation, numerals, signal blue, motion, or backgrounds, also read [references/terminal-theme-reference.md](references/terminal-theme-reference.md).
 7. Read [references/component-patterns.md](references/component-patterns.md) when building or modifying reusable components.
 8. Read [references/page-elements.md](references/page-elements.md) when selecting general interface elements. Select only what the product needs; never copy the entire reference page.
 9. Read [references/examples.md](references/examples.md) when choosing page composition or copy tone.
 10. Change only the code required for the requested outcome. Preserve the existing framework, business structure, behavior, and terminology.
 11. Replace all reference copy and data with realistic target-product content. Never copy reference branding or page-specific information.
-12. Validate layout, contrast, keyboard focus, scrolling, and core interactions at desktop and mobile widths.
+12. Validate layout, contrast, keyboard focus, scrolling, and core interactions against the selected example at desktop and mobile widths. Briefly identify which example informed the implementation. If the template is unavailable, state that and request the files rather than claiming to have inspected it.
 
 ## Core Constraints
 
-- Use black, charcoal, and cool white as the base. Use deep cyan for primary actions and critical data. Use white text on cyan fills.
+- Use black, charcoal, and cool white as the base. Use signal blue `#22bbff` for selected controls, progress fills, state markers, and key values on dark surfaces. Switches, checkboxes, radios, sliders, steps, and selected options use this same blue on both light and dark surfaces; any legacy `--cyan` control token must reference `--signal-blue`. All blue-background buttons use reference blue `#22bbff` with white text. Use deep blue only for blue text on paper, not as a substitute button fill.
 - Use yellow for limited-time content, rewards, high-priority notices, and sparse brand lines. Use orange for unread or new markers. Reserve red for danger and failure.
 - Do not use blue-purple gradients, excessive neon, low-contrast glassmorphism, or soft oversized rounded cards.
 - Prefer rectangles, hard edges, thin borders, and occasional clipped corners. Keep default corner radii at `0–2px`.
 - Use Noto Serif SC as the primary Chinese typeface for brand, page, section, and component titles at weights 700–900.
-- Use Noto Sans SC for Chinese navigation, controls, body copy, and supporting text at weights 400 or 700 only. Use Times New Roman for Latin text, numbers, dates, and interface identifiers. Keep code blocks on an SF Mono-first stack.
-- Use Noto Sans SC for navigation by default. A brand-led studio or archive sidebar may use Noto Serif SC 700, while action controls remain sans serif.
-- Build hierarchy with type scale, spacing, borders, and contrast. Decoration must not reduce readability.
+- Use Noto Sans SC for Chinese controls, body copy, and supporting text at weights 400 or 700 only. Use Bender 400 or 700 for numerals, dates, and numeric parts of identifiers. Use Bender for sidebar Latin labels and Times New Roman for other Latin words. Keep code blocks on an SF Mono-first stack.
+- Keep desktop sidebars narrow: default to 152px, or 144px on narrower desktop screens, using one width token for the rail and content offsets. Group 64px navigation rows with 8px gaps below the filter; do not stretch them across the viewport height. Use a transparent charcoal sidebar with centered, unboxed text links grouped in a compact vertical rhythm. Use 16px regular-weight sidebar labels: Bender for Latin and system sans-serif for Chinese (PingFang SC, Microsoft YaHei, sans-serif). Use the same font stack at 15px for the navigation filter. Keep the current item at weight 400, mark it in blue with `aria-current`; omit large brand blocks, item borders, icons, number badges, and filled selected cards on desktop.
+- Build hierarchy with type scale, spacing, borders, and contrast. Use neutral geometric backgrounds with faint texture. Keep entry motion brief. For the terminal treatment, reuse the bundled particle and cursor implementations and the numerical parameters in [references/terminal-theme-reference.md](references/terminal-theme-reference.md); include the 6px pointer, lagging ring, and click ripple. Pause particles in hidden tabs; reduced-motion preferences freeze particles and disable the ring. Decoration must not reduce readability.
+- When the product explicitly calls for a PRTS-style terminal voice, use short declarative system copy and a restrained vocabulary of protocols, archives, commands, nodes, links, transfers, and status reports. Start buttons with a concrete action and keep the affected object visible. Follow the copy guidance in [references/examples.md](references/examples.md); do not copy dialogue, lore text, or branded phrases from the game.
 - Never communicate an important state with color alone. Buttons must not change on Hover; provide pressed, selected, focus, and disabled states instead.
 - Do not copy game logos, official icons, characters, artwork, or exact layouts. Reuse only typography, panel hierarchy, and industrial interface principles.
 
 ## Implementation Principles
 
-- Match the existing technology stack. Do not rewrite the project for a visual change.
+- Match the existing technology stack and reuse existing components. Prefer shadcn/ui when a compatible component foundation is needed; do not rewrite the project for a visual change.
 - Prefer CSS variables for shared design tokens.
 - Preserve wheel and touch scrolling. When hiding scrollbars, support both WebKit and Firefox.
 - Distinguish a "Skill Rules Summary" from the actual `SKILL.md`. Label content as `SKILL.md` only when it represents the complete source file.
-- Format debug logs as `console.log('[functionName] log message')`.
+- Format debug logs as `console.log('[functionName] message', data)` with the actual function name and relevant non-sensitive data.
 - Avoid single-use abstractions and unnecessary component dependencies.
 
 ## Validation
 
 - Run the project's existing build, type-check, and test commands.
-- Inspect at least one desktop width and one mobile width.
-- Verify computed typefaces and weights for primary titles, body text, Latin labels, and code.
+- Run the page and inspect a 1920×1080 desktop viewport and a mobile viewport. Save a desktop screenshot outside the project for delivery, using the browser workflow required by the target project.
+- Verify computed typefaces and weights for primary titles, body text, Latin labels, and code. Check 152/144px sidebar widths, compact row spacing, blue fills with white text, unchanged button Hover colors, cursor feedback, and reduced-motion behavior when those elements are present.
 - Verify that there is no horizontal overflow, clipped content, misplaced errors, or unreachable controls.
 - Clearly separate static inspection, successful builds, and browser-tested results.

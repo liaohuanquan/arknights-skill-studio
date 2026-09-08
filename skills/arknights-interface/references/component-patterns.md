@@ -2,7 +2,7 @@
 
 ## Buttons
 
-- Use deep cyan, white text, hard edges, and a downward soft shadow for the primary button.
+- All blue-background buttons use white text, including primary actions and selected button states. Use reference blue `#22bbff` for these fills. Keep hard edges and restrained shadows.
 - Use a light or charcoal fill, a visible border, and the same height as the primary button for secondary actions.
 - Use red only for destructive or irreversible actions.
 - Reduce saturation and contrast for disabled buttons while keeping labels readable.
@@ -11,9 +11,10 @@
 
 ## Navigation
 
-- Mark the current item with a deep-cyan edge or solid block.
-- Reinforce selection with position, iconography, or weight instead of color alone.
-- Allow Noto Serif SC 700 in a brand-led wide sidebar. Use Noto Sans SC 400 or 700 for ordinary product navigation.
+- Use centered, unboxed text links on a transparent charcoal desktop sidebar. Mark the current item with signal-blue text and `aria-current`, keeping its regular weight; keep a single thin outer divider.
+- Keep the current destination identifiable through its page heading and `aria-current`; mobile navigation also retains a selected underline.
+- Use 16px Bender 400 for Latin sidebar labels and system sans-serif (PingFang SC, Microsoft YaHei, sans-serif) for Chinese. Keep all items at 400, including the current item; use the same font stack at 15px for the filter. Group 64px rows with 8px gaps; omit large brand blocks, per-item borders, icons, and badges. Use the 152/144px shared sidebar width from the studio and avoid viewport-height row stretching.
+- A sidebar search field filters navigation names, supports Escape to clear, and shows an honest empty state. Reset the filter when switching to bottom navigation.
 - Convert navigation to a fixed bottom bar on mobile without covering the end of the page.
 - Use light unselected tabs, a dark selected tab, and a cyan bottom edge. Reserve orange diamonds for unread or updated states.
 - Keep pagination at content width and center the complete button group inside its container.
@@ -26,10 +27,10 @@
 
 ## Data Cards
 
-- Pair large Times New Roman 700 values with smaller units and labels. Do not use Noto Sans SC 900 for metrics.
+- Pair large Bender 400 or 700 values with smaller units and labels. Do not use Noto Sans SC 900 for metrics.
 - Group information with borders, spacing, and tonal contrast instead of rounded-card stacks.
 - Use semantic colors only for success, warning, or error information.
-- Keep chart lines low contrast and reserve deep cyan for key data points.
+- Keep chart guide lines low contrast. Use signal blue `#22bbff` for data marks and progress fills on both light and dark surfaces; reserve deep blue for text on light surfaces.
 
 ## Panels and Dialogs
 
@@ -41,7 +42,7 @@
 ## Forms
 
 - Keep labels persistent instead of relying on placeholders.
-- Use a deep-cyan focus border while preserving native accessible focus semantics.
+- Use signal-blue control borders while preserving native accessible focus semantics. Switches, checkboxes, radios, sliders, and selected options use `#22bbff` on light and dark surfaces.
 - Pair red error styling with explanatory text.
 - Keep inputs, selects, and buttons at a consistent height with hard-edge geometry.
 - Use a custom listbox when visual consistency requires it. Preserve `aria-expanded`, `listbox` and `option` roles, arrow-key movement, and `Escape` closing.

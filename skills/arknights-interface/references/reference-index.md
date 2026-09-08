@@ -1,17 +1,20 @@
 # Reference Index
 
-Select one composition reference before implementing or substantially restyling a page. Inspect both the screenshot and the matching source template. Learn from layout hierarchy, proportions, typography roles, shadow direction, and component states. Do not copy example copy, business data, branding, or page-specific content.
+Inspect the composition reference before implementing or substantially restyling a page. Review both its screenshot and source template. Learn from layout hierarchy, proportions, typography roles, shadow direction, and component states. Do not copy example copy, business data, branding, or page-specific content.
 
 | Page type | Screenshot | Source template | Learn from |
 | --- | --- | --- | --- |
-| Component catalog or design studio | `images/component-studio.png` | `../assets/templates/component-studio/` | Wide navigation rail, fixed utility bar, consecutive component rows, type hierarchy, control-state presentation |
-| Operations dashboard or device console | `images/operations-dashboard.png` | `../assets/templates/operations-dashboard/` | Fixed shell, metric strip, alert hierarchy, dense data panels, internal workspace scrolling |
+| Component catalog or design studio | `images/component-studio.png` | `../assets/templates/component-studio/` | Centered text navigation rail, fixed utility bar, consecutive component rows, type hierarchy, control-state presentation |
+
+For a self-contained Chinese generation prompt matching this studio, use [PRTS Visual Prompt](../assets/templates/component-studio/src/visual-prompt.md).
+
+For sidebar navigation, numerals, blue accents, animation, and background depth, also use [Terminal Theme Reference](terminal-theme-reference.md).
 
 ## Selection Rules
 
-- Choose the component studio for design systems, reusable component inventories, style guides, and interface documentation.
-- Choose the operations dashboard for monitoring, administration, device control, telemetry, review queues, and data-heavy tools.
-- Use the closest reference as a composition anchor, not as a page specification.
+- Use the component studio for design systems, reusable component inventories, style guides, and interface documentation.
+- For product pages, dashboards, and device consoles, take individual layout and component patterns from the studio instead of copying a complete example application.
+- Use the reference as a composition anchor, not as a page specification.
 - Preserve the target project's framework, business structure, interactions, and terminology.
 - Reuse only general layout and component patterns.
 - Replace all sample copy with realistic target-product content.
@@ -27,4 +30,3 @@ Before editing code, record the following from the selected reference:
 4. Semantic accents: cyan actions and selection, yellow priority, orange updates, red failure, and green success.
 5. Density: number of visible rows, column widths, control height, and spacing rhythm.
 6. Interaction states: selected, pressed, focus, disabled, expanded, error, loading, and empty.
-
