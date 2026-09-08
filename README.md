@@ -11,9 +11,9 @@ The repository combines:
 
 ## Preview
 
-### Component studio
+### PRTS component studio
 
-![Component studio](skills/arknights-interface/references/images/component-studio.png)
+![PRTS component studio — 1920×1080 desktop preview](skills/arknights-interface/references/images/component-studio.png)
 
 ## Repository Structure
 
