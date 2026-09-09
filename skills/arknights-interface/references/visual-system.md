@@ -29,6 +29,12 @@
 - Reserve red for danger, failure, and irreversible actions. Do not use semantic colors as arbitrary decoration.
 - Do not use blue-purple gradients. Create depth with tonal opacity, subtle grain, diagonal connections, or solid color regions.
 
+## Three-Size Limit
+
+Use only `--text-sm: .75rem`, `--text-md: 1rem`, and `--text-lg: 1.5rem` (12/16/24px at the default browser root). Supporting labels use small; body, controls, navigation, table text and code use medium; titles and key metrics use large. Map font shorthands, placeholders, pseudo-elements and small/sup/sub text to these tokens too. Do not add local sizes, fluid font-size values or transform-scaled text. Keep the same tokens on mobile and allow user zoom. Use spacing, wrapping, weight and color to create hierarchy.
+
+This new constraint overrides historical font sizes in the bundled examples and screenshots. The current studio uses these three tokens; historical screenshots may still show earlier sizes.
+
 ## Typography
 
 ```css
@@ -98,7 +104,7 @@ Clipped-corner example:
 
 - Brand hero: use a cool-white field, a prominent serif narrative title, sparse yellow diagonal connections, and a dark utility region.
 - Studio or component library: use a narrow transparent charcoal sidebar (152px desktop, 144px on narrower desktop screens; share one width token with content offsets), fixed top bar, and independently scrolling content area. Center unboxed text links in 64px rows with 8px gaps, grouped below a 48px filter with an 18px gap. Do not distribute rows across the full viewport height. At 720px and below, use a 66px bottom bar and a 76px header. Use a quiet navigation filter and one thin outer divider; omit large brand blocks, item borders, desktop icons, and selected fills.
-- Sidebar typography: use a dedicated `--font-sidebar` stack with Bender for Latin and system sans-serif (PingFang SC, Microsoft YaHei, sans-serif) for Chinese. Labels are 16px, and the navigation filter is 15px. All labels stay at weight 400; ordinary links are white and the current item is signal blue with `aria-current`. Keep the numeric-only Bender face unchanged elsewhere.
+- Sidebar typography: use a dedicated `--font-sidebar` stack with Bender for Latin and system sans-serif (PingFang SC, Microsoft YaHei, sans-serif) for Chinese. Labels are 16px, and the navigation filter is 16px. All labels stay at weight 400; ordinary links are white and the current item is signal blue with `aria-current`. Keep the numeric-only Bender face unchanged elsewhere.
 - Component catalog: use horizontal label-instance rows on desktop and stack the label above the instance on narrow screens.
 - Data review page: place navigation and filters on the left, primary content in the center, and metadata or validation actions on the right.
 - Device console: place device identity, connection state, and global actions at the top; show key metrics and warnings before detailed forms and logs.
@@ -111,3 +117,12 @@ Clipped-corner example:
 - Keep content-entry and click-ripple animations finite. Background particles may drift continuously; show real numbers immediately and do not replay entry animation during data refreshes.
 - Replace the system arrow with the compact 6px theme pointer. On a fine mouse pointer above 768px, add a 36px `#ccc` ring with the reference follow interpolation `min(0.025 × elapsed milliseconds, 1)`, shrink it to 24px with a 53% white fill over controls, and show one 80px, 4px-border click ripple for 500ms. Use content-box sizing, a 1px ring border, a 300ms ring transition, and no difference blend mode; start the ripple on click at scale(0), fade to scale(1) with `cubic-bezier(.22,.61,.21,1)`, and ignore repeated triggers while it runs. Keep these overlays non-interactive and out of the accessibility tree.
 - For `prefers-reduced-motion: reduce`, freeze particles, remove the cursor ring and ripple, render final states immediately, and disable animations, transitions, and smooth scrolling, including pseudo-elements. Avoid persistent flashing and meaningless scanning effects.
+
+## Scrolling and Pointer Rules
+
+- Hide page/workspace scrollbar chrome with `scrollbar-width: none` and `::-webkit-scrollbar { display: none; }`, keeping the scroll container on `overflow: auto`. Do not disable scrolling with hidden overflow or intercept wheel events.
+- Use `scrollbar-width: thin` on overflowing sidebars and local code/prompt scroll areas. Preserve native mobile scrolling, touchpad, wheel and keyboard access. Independently keyboard-scrollable regions need a name, `tabindex="0"` and visible focus; tables must retain horizontal scrolling when needed.
+- Reuse the white 6px PNG `--terminal-pointer` from template `src/terminal.css`, hotspot `(3,3)`, with a system `default` fallback. Mount `src/terminal-effects.js` once in the application shell; CSS alone does not provide the following ring.
+- On fine pointers above 768px, show the 36px ring with a 1px #ccc border; follow client coordinates in a fixed overlay using `min(.025 * elapsedMilliseconds, 1)` interpolation. On enabled interactive controls, shrink to 24px with rgba(255,255,255,.533) fill over 300ms. Button colors and geometry remain unchanged on Hover.
+- Click feedback uses an 80px ring with a 4px border, scale 0 to 1 and opacity 1 to 0 over 500ms with cubic-bezier(.22,.61,.21,1). Ignore repeat clicks until the ripple ends. Ring/ripple use content-box sizing; no difference blend mode.
+- Keep overlays pointer-events:none and aria-hidden. Hide on window exit, blur, hidden tab or keyboard Tab; remove listeners, timers and RAF callbacks on unmount. No following ring on coarse/touch pointers or reduced motion; reduced motion also disables ripple, transitions and smooth scrolling.

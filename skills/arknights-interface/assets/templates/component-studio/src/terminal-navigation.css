@@ -35,7 +35,7 @@
   background: transparent;
   color: #eceeee;
   font-family: var(--font-sidebar);
-  font-size: 15px;
+  font-size: var(--text-md);
   font-weight: 400;
   text-align: center;
 }
@@ -70,7 +70,7 @@
   color: #f3f4f4;
   box-shadow: none;
   font-family: var(--font-sidebar);
-  font-size: 16px;
+  font-size: var(--text-md);
   font-weight: 400;
   line-height: 1.4;
   text-align: center;
@@ -99,7 +99,7 @@
 .terminal-sidebar__empty {
   margin: 36px 0 0;
   color: #adb2b3;
-  font-size: 13px;
+  font-size: var(--text-md);
   text-align: center;
 }
 .terminal-sidebar__empty[hidden] { display: none; }
@@ -128,7 +128,7 @@
     flex-direction: column;
     gap: 4px;
     font-family: var(--font-sans);
-    font-size: 11px;
+    font-size: var(--text-md);
   }
   .rail .terminal-sidebar__link svg { display: block; }
   .rail .terminal-sidebar__link[aria-current='location'] { box-shadow: inset 0 -3px var(--signal-blue); }

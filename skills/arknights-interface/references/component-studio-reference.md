@@ -39,7 +39,7 @@ The current catalog contains 22 groups, including command queues and task/reward
 - Use Noto Serif SC 700 or 900 for the page title, section titles, and component names.
 - Use Noto Sans SC 400 or 700 for controls, explanations, and supporting labels.
 - Use Bender for numerals, metrics, dates, and numeric parts of identifiers; use Bender for sidebar Latin labels and Times New Roman for other Latin words and labels.
-- Sidebar labels use 16px regular-weight Bender for Latin and system sans-serif (PingFang SC, Microsoft YaHei, sans-serif) for Chinese. The current item stays at weight 400; the navigation filter uses the same stack at 15px.
+- Sidebar labels use 16px regular-weight Bender for Latin and system sans-serif (PingFang SC, Microsoft YaHei, sans-serif) for Chinese. The current item stays at weight 400; the navigation filter uses the same stack at 16px.
 - Keep sans-serif control labels visually lighter than major serif titles.
 
 ## Do Not Copy
