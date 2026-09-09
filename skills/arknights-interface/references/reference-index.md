@@ -30,3 +30,5 @@ Before editing code, record the following from the selected reference:
 4. Semantic accents: cyan actions and selection, yellow priority, orange updates, red failure, and green success.
 5. Density: number of visible rows, column widths, control height, and spacing rhythm.
 6. Interaction states: selected, pressed, focus, disabled, expanded, error, loading, and empty.
+
+- [Interface language](interface-language.md): source-backed Arknights naming and copy rules; read before writing section, action, state or error text.

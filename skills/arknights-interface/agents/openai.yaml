@@ -1,4 +1,4 @@
 interface:
   display_name: "PRTS Visual Protocol"
   short_description: "Build PRTS interfaces from the verified compact studio"
-  default_prompt: "使用 $arknights-interface 编写或修改 UI、组件前，先查阅 assets/templates/component-studio/ 中最接近的实例源码、样式和可用预览，字号仅用 12/16/24 三档，明确滚动条、6px 指针及跟随圆环规则，再沿用其紧凑侧栏、蓝底白字、字体、粒子、鼠标效果与 PRTS 文案，在目标项目已有组件体系中实现，并保留业务行为。"
+  default_prompt: "使用 $arknights-interface 编写或修改 UI、组件前，先查阅 assets/templates/component-studio/ 中最接近的实例源码、样式和可用预览，字号仅用 12/16/24 三档，明确滚动条、6px 指针及跟随圆环规则，再沿用其紧凑侧栏、蓝底白字、字体、粒子、鼠标效果与 PRTS 文案（按 interface-language.md 使用功能栏目名、具体动作和真实状态），在目标项目已有组件体系中实现，并保留业务行为。"
