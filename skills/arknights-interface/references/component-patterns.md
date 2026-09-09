@@ -13,7 +13,7 @@
 
 - Use centered, unboxed text links on a transparent charcoal desktop sidebar. Mark the current item with signal-blue text and `aria-current`, keeping its regular weight; keep a single thin outer divider.
 - Keep the current destination identifiable through its page heading and `aria-current`; mobile navigation also retains a selected underline.
-- Use 16px Bender 400 for Latin sidebar labels and system sans-serif (PingFang SC, Microsoft YaHei, sans-serif) for Chinese. Keep all items at 400, including the current item; use the same font stack at 15px for the filter. Group 64px rows with 8px gaps; omit large brand blocks, per-item borders, icons, and badges. Use the 152/144px shared sidebar width from the studio and avoid viewport-height row stretching.
+- Use 16px Bender 400 for Latin sidebar labels and system sans-serif (PingFang SC, Microsoft YaHei, sans-serif) for Chinese. Keep all items at 400, including the current item; use the same font stack at 16px for the filter. Group 64px rows with 8px gaps; omit large brand blocks, per-item borders, icons, and badges. Use the 152/144px shared sidebar width from the studio and avoid viewport-height row stretching.
 - A sidebar search field filters navigation names, supports Escape to clear, and shows an honest empty state. Reset the filter when switching to bottom navigation.
 - Convert navigation to a fixed bottom bar on mobile without covering the end of the page.
 - Use light unselected tabs, a dark selected tab, and a cyan bottom edge. Reserve orange diamonds for unread or updated states.
