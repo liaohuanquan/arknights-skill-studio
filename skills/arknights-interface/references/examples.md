@@ -43,14 +43,9 @@ Use $arknights-interface to refine this mobile screen, focusing on bottom naviga
 
 ## PRTS-Style Terminal Copy
 
-Use this voice only when the target product or the user explicitly asks for an Arknights- or PRTS-inspired terminal tone.
+Read [the source-backed interface language guide](interface-language.md) before writing UI copy for an Arknights/PRTS product. It provides official source links, a three-layer naming approach, original before-use examples and state semantics.
 
-- Write short declarative sentences that report a subject, state, and next action: "终端链路波动。请复核中继节点。"
-- Prefer a restrained working vocabulary such as 协议、档案、指令、节点、链路、回传、校验、调度、归档, and 状态. Use a term only when it describes the actual product behavior.
-- Name primary sections as stable system areas: "协议总览", "组件档案", or "行动记录". Use English metadata as a namespace or identifier, for example `PRTS / COMPONENT ARCHIVE`.
-- Start buttons with a concrete verb and retain the object: "录入协议", "调阅源文件", "执行校准", or "终止指令".
-- Distinguish neutral reports, warnings, and high-risk commands through explicit copy before applying color. State “已同步”, “已导出”, or “已归档” only after the corresponding behavior succeeds; identify illustrative status data as examples.
-- Preserve the target product's entities and tasks. Do not insert faction names, story details, dialogue, or copied game text merely for atmosphere.
+Use functional names for sections, concrete verbs for actions and factual sentences for states. For example: “设备档案”, “保存配置”, “配置已保存”. Keep actual business objects; do not replace every operation with “协议” or every person with “干员”. These examples are original adaptations, not quoted game UI text.
 
 ## Avoid
 
